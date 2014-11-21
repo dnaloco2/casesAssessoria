@@ -529,13 +529,12 @@ CmsApp.controller('ArquivosCtrl', ['$scope',  function ( $scope ) {
 }]);
 
 CmsApp.controller('FormulariosCtrl', ['$scope', 'Formulario', '$location', function ($scope, Formulario, $location) {
-	$scope.teste = "tesgte";
 
 	$scope.formularios = [];
 
 	var loadFormularios = ( function() {
 		$scope.loadingFormularios = true;
-/*		var formularios = Corretor.query( function () {
+		var formularios = Formulario.query( function () {
 			$scope.loadingFormularios = false;
 
 			console.log(formularios);
@@ -543,12 +542,11 @@ CmsApp.controller('FormulariosCtrl', ['$scope', 'Formulario', '$location', funct
 			for ( key in formularios.data ) {
 				$scope.formularios.push( formularios.data[key] );
 			}
-		});*/
+		});
 	})();
 }]);
 
 CmsApp.controller('CircularesCtrl', ['$scope', 'Circular', '$location', function ($scope, Circular, $location) {
-	$scope.teste = "tesgte";
 
 	$scope.circulares = [];
 
@@ -562,6 +560,26 @@ CmsApp.controller('CircularesCtrl', ['$scope', 'Circular', '$location', function
 
 			for ( key in circulares.data ) {
 				$scope.circulares.push( circulares.data[key] );
+			}
+		});
+		
+	})();
+}]);
+
+CmsApp.controller('NotificacoesCtrl', ['$scope', 'Notificacao', '$location', function ($scope, Notificacao, $location) {
+
+	$scope.notificacoes = [];
+
+	var loadNotificacoes = ( function() {
+
+		$scope.loadingNotificacoes = true;
+		var notificacoes = Notificacao.query( function () {
+			$scope.loadingNotificacoes = false;
+
+			console.log(notificacoes);
+
+			for ( key in notificacoes.data ) {
+				$scope.notificacoes.push( notificacoes.data[key] );
 			}
 		});
 		
