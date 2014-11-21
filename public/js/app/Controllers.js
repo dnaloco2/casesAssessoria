@@ -553,6 +553,7 @@ CmsApp.controller('CircularesCtrl', ['$scope', 'Circular', '$location', function
 	$scope.circulares = [];
 
 	var loadCirculares = ( function() {
+
 		$scope.loadingCirculares = true;
 		var circulares = Circular.query( function () {
 			$scope.loadingCirculares = false;
