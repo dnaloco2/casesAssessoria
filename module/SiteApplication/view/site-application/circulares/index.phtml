@@ -1,0 +1,34 @@
+<div class="row" ng-controller="CircularesCtrl">
+	<div class="large-12 columns">
+
+		<h2>Circulares</h2>
+		<div ng-show="loading">Carregando dados...</div>
+
+		<table id="tabela-posts" ng-hide="loading" width="100%">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Título</th>
+					<th>Criado Por</th>
+					<th>Criado Em</th>
+					<th>Atualizado Em</th>
+					<th>Expira Em</th>
+					<th>Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="post in posts">
+					<td>{{ post.id }}</td>
+					<td>{{ post.titulo }}</td>
+					<td>{{ post.criado_por }}</td>
+					<td>{{ post.criado_em }}</td>
+					<td>{{ post.atualizado_em }}</td>
+					<td>{{ post.expiresAt }}</td>
+					
+					<td><a href="/admin/content/posts/edit/{{ post.id }}">Editar</a>|<a href="/admin/content/posts/delete/{{ post.id }}">Excluir</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>

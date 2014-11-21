@@ -1,0 +1,293 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle($this->translate('Cases Assessoria - Consultoria de Seguros'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ; ?>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicosadn.ico'))
+                        ->prependStylesheet($this->basePath() . '/css/app.css') ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+            ->appendFile($this->basePath() . '/js/plugins/blockui-master/jquery.blockUI.js')
+            ->appendFile($this->basePath() . '/bower_components/angular/angular.js')
+            ->appendFile($this->basePath() . '/bower_components/angular-route/angular-route.js')
+            ->appendFile($this->basePath() . '/bower_components/angular-resource/angular-resource.js')
+            ->appendFile($this->basePath() . '/js/plugins/mobile.collapse.js')
+            ->appendFile($this->basePath() . '/js/app/CmsApp.js')
+            ->appendFile($this->basePath() . '/js/app/Services.js')
+            ->appendFile($this->basePath() . '/js/app/Directives.js')
+            ->appendFile($this->basePath() . '/js/app/Controllers.js')
+            ->appendFile($this->basePath() . '/js/html5.image.preview.min.js')
+            ->prependFile($this->basePath() . '/bower_components/foundation/js/foundation.js')
+            ->prependFile($this->basePath() . '/js/jquery.min.js')
+            ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+            ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+            
+        ; ?>
+    </head>
+    <body ng-app='CmsApp'>
+
+      <div id="wrapper-site" data-ng-controller="RouteCtrl">
+        
+        <div id="top-site-background">
+
+          <header id="header-top-site" class="row">
+
+            <div id="logo" class="large-2 medium-6 columns">
+              <a href="/"><img class="logo-img" src="/img/teste-logo01.png" alt="logotipo da empresa Cases Assessoria"></a>
+            </div>  <!-- LOGOTIPO  -->
+
+            <section id="links-top">
+
+
+              <div class="large-3 large-offset-1 medium-6 small-12 column link-top no-padding-left">
+                <form action="">
+                  <div class="row">
+                    <div class="large-12 columns">
+                      <div class="row collapse">
+                        <div class="small-10 columns">
+                          <input class="buscar-site" type="text" placeholder="Buscar no Site">
+                        </div>
+                        <div class="small-2 columns">
+                          <a href="#" class="button postfix btn-ir-busca">Ir</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+
+              <div class="large-3 medium-6 small-12 link-top columns">
+                <button data-dropdown="drop_atendimento" aria-controls="drop_atendimento" aria-expanded="false" class="dropdown btn-atendimento btn-top-header">Atendimento</button>
+                <ul id="drop_atendimento" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+                  <li><a href="#">Fale Conosco</a></li>
+                  <li><a href="#">Chat On-Line</a></li>
+                  <li><a href="#">Telefones</a></li>
+                </ul>
+              </div>
+
+              <div class="large-3 medium-6 small-12 link-top columns no-padding-right">
+                <button data-dropdown="drop_login" aria-controls="drop_login" aria-expanded="false" class="dropdown btn-atendimento btn-top-header">Portal do Corretor</button>
+                <ul id="drop_login" data-dropdown-content class="f-dropdown small" aria-hidden="true" tabindex="-1">
+                  <form action="&#x2F;auth" method="post" name="Login" id="Login">
+                  <li>
+                    <label><span>Email: </span><input type="text" name="email" placeholder="Entre&#x20;com&#x20;o&#x20;Email" value=""></label>
+                    <label><span>Password: </span><input type="password" name="password" placeholder="Entre&#x20;com&#x20;a&#x20;senha" value=""></label>
+                  </li>
+                  <li><a href="" class="button expand">Autenticar</a></li>
+                  <li><a href="" class="button expand">Esqueci minha senha</a></li>
+                  </form>
+                </ul>
+              </div>
+
+            </section>  <!-- fim Links Top (Buscar, Atendimento, Admin)  -->
+
+
+            <section id="links-bottom">
+
+              <nav id="menu-principal" class="large-9 medium-12 small-12 columns barra-menu">
+
+                <h2 class="navheader slide-trigger">Menu <span></span></h2>
+
+                <ul class="navigation group">
+
+                  <li><a href="#quem-somos-page" data-ng-click="anchorSection('#quem-somos-page')">Quem Somos</a></li>
+                  <li><a href="#servicos-page" data-ng-click="anchorSection('#servicos-page')"><span class="small-symbol">+</span>Servicos</a>
+                    <ul class="box-menu">
+                      <li><a href="#serv-painel-a-tecn" data-ng-click="servicosSection('#pagina-serv-painel-a-tecn', 1)">Apoio Técnico</a></li>
+                      <li><a href="#serv-painel-a-com" data-ng-click="servicosSection('#pagina-serv-painel-a-com', 2)">Apoio Comercial</a></li>
+                      <li><a href="#serv-painel-a-jur" data-ng-click="servicosSection('#pagina-serv-painel-a-jur', 3)">Apoio Jurídico</a></li>
+                      <li><a href="#serv-painel-a-sin" data-ng-click="servicosSection('#pagina-serv-painel-a-sin', 4)">Apoios Sinistros</a></li>
+                      <li><a href="#serv-painel-a-nav" data-ng-click="servicosSection('#pagina-serv-painel-a-nav', 5)">Apoio Resseguros</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#produtos-page" data-ng-click="anchorSection('#produtos-page')"><span class="small-symbol">+</span>Produtos</a>
+                    <ul class="box-menu">
+                      <li><a href="#prod-pn-riscos-fin" data-ng-click="produtosSection('#pagina-prod-pn-riscos-fin', 1)">Riscos Financeiros</a></li>
+                      <li><a href="#prod-pn-riscos-respn" data-ng-click="produtosSection('#pagina-prod-pn-riscos-respn', 2)">Riscos Patrimoniais & Responsabilidade Civil</a></li>
+                      <li><a href="#prod-pn-riscdiv" data-ng-click="produtosSection('#pagina-prod-pn-riscdiv', 3)">Riscos Diversos</a></li>
+                      <li><a href="#prod-pn-transp" data-ng-click="produtosSection('#pagina-prod-pn-transp', 4)">Transportes</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#faq-glossario-page" data-ng-click="anchorSection('#faq-glossario-page')"><span class="small-symbol">+</span>FAQ/Gloassario</a>
+                    <ul class="box-menu">
+                      <li><a href="#faq-glossario-page" data-ng-click="anchorSection('#faq-glossario-page')">FAQ/Gloassario</a></li>
+                      <li><a href="#informativos-indicatores" data-ng-click="anchorSection('#informativos-indicatores')">Informativos/Indicadores</a></li>
+                      <li><a href="#ultimas-noticias" data-ng-click="anchorSection('#ultimas-noticias')">Últimas Notícias</a></li>
+                    </ul>
+
+                  </li>
+                  <li class="has-dropdown"><a href="#"><span class="small-symbol">+</span>Para Corretores</a>
+                    <ul class="box-menu">
+                      <li><a href="">Formulários</a></li>
+                      <li><a href="">Notificações</a></li>
+                      <li><a href="">Circuláres</a></li>
+
+                    </ul>
+                  </li>
+                </ul>
+
+              </nav>
+
+            </section> <!-- fim Links Bottom - Menu Principal  -->
+
+
+          </header> <!-- fim Header  -->
+
+        </div> <!-- fim background Header  -->
+        
+        <?php
+        $route = $this->getHelperPluginManager()->getServiceLocator()->get('request')->getUri()->getPath(); 
+        $isAdmin = false;
+
+        if (strpos($route, 'admin') !== false) {
+            $isAdmin = true;
+        }
+        ?>
+
+        <?php if ($isAdmin and $this->UserIdentity('CmsUser')): ?>
+
+        <aside id="admin-menu" class="fixed">
+
+          <nav class="menu-accordion">
+            <ul>
+              <li style="display: none">
+                <h3><span class="icon-dashboard"></span>ACL - Permissões</h3>
+                <ul>
+                  <li><a href="/admin/access/roles">Roles</a></li>
+                  <li><a href="/admin/access/resources">Resources</a></li>
+                  <li><a href="/admin/access/privileges">Privileges</a></li>
+                </ul>
+              </li>
+
+              <li ng-class="{'active': isContent}">
+                <h3>&nbsp;&nbsp;<span class="icon-drawer"></span>&nbsp;&nbsp;Conteudo</h3>
+                <ul>
+                  <li><a href="/admin/content/posts" target="_self"><span class="icon-compose"></span>&nbsp;&nbsp;Posts</a></li>
+                  <li><a href="/admin/content/arquivostexto" target="_self"><span class="icon-note"></span>&nbsp;&nbsp;Arquivo</a></li>
+                  <li><a href="/admin/content/links" target="_self"><span class="icon-link"></span>&nbsp;&nbsp;Links</a></li>
+                  <li><a href="/admin/content/corretores" target="_self"><span class="icon-vcard"></span>&nbsp;&nbsp;Corretor</a></li>
+                </ul>
+              </li>
+
+              <li ng-class="{'active': isUser}">
+                <h3>&nbsp;&nbsp;<span class="icon-users2"></span>&nbsp;&nbsp;Usuários</h3>
+                <ul>
+                  <li><a href="/admin/access/users/index" target="_self"><span class="icon-users3"></span>&nbsp;&nbsp;Listar</a></li>
+                  <li><a href="/admin/access/users/new" target="_self"><span class="icon-user-add"></span>&nbsp;&nbsp;Novo</a></li>
+                </ul>
+              </li>
+
+              <li style="display: none">
+                <h3><span class="/admin/access/users"></span>Newsletter</h3>
+                <ul>
+                  <li><a href="/admin/access/users/index" target="_self">Cadastrados</a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </nav>
+        </aside>
+      
+        <?php endif; ?>
+
+        <div id="main-content" ng-class="{'admin-content': isAdmin}" data-ng-cloak>
+          <div class="margem-fixed row"></div>
+          <?php echo $this->content; ?>
+          <div class="push"></div>
+        </div>
+
+        <footer id="rodape" ng-class="{'admin-content': isAdmin}">
+          Footer
+          <div class="row">
+
+            <div class="large-4 columns">
+              Site Map .1
+            </div>
+
+            <div class="large-4 columns">
+              Site Map .2
+            </div>
+            
+            <div class="large-4 columns">
+              Site Map .3
+            </div>
+
+          </div>
+        </footer>  <!-- fim rodape  -->
+        
+
+      </div>
+        <?php echo $this->inlineScript() ?>
+      
+      <script> 
+        window.onload = function() {
+            // Listen to the double click event.
+            if ( window.addEventListener )
+                document.body.addEventListener( 'dblclick', onDoubleClick, false );
+            else if ( window.attachEvent )
+                document.body.attachEvent( 'ondblclick', onDoubleClick );
+
+        };
+
+        function onDoubleClick( ev ) {
+            // Get the element which fired the event. This is not necessarily the
+            // element to which the event has been attached.
+            var element = ev.target || ev.srcElement;
+
+            // Find out the div that holds this element.
+            var name;
+
+            do {
+                element = element.parentNode;
+            }
+            while ( element && ( name = element.nodeName.toLowerCase() ) &&
+                ( name != 'div' || element.className.indexOf( 'editable' ) == -1 ) && name != 'body' );
+
+            if ( name == 'div' && element.className.indexOf( 'editable' ) != -1 )
+                replaceDiv( element );
+        }
+
+        var editor;
+
+        function replaceDiv( div ) {
+            if ( editor )
+                editor.destroy();
+
+            editor = CKEDITOR.replace( div );
+        }
+
+
+        $(document).ready(function () {
+          $(document).foundation();
+
+          $(".menu-accordion h3").click(function(){
+          
+            $(".menu-accordion ul ul").slideUp();
+            
+            if(!$(this).next().is(":visible")) {
+              $(this).next().slideDown();
+            
+            }
+          })
+
+          $(".menu-accordion ul ul li").click(function(){
+            $(".active").removeClass("active").addClass("inactive");
+            $(this).removeClass("inactive").addClass("active");
+          });
+
+        });
+
+      </script>
+
+    </body>
+</html>

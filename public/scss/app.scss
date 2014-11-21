@@ -1,0 +1,751 @@
+// Minhas Fonts
+@import "myfonts";
+
+/*CSS file for fontawesome - an iconfont we will be using. This CSS file imported contains the font-face declaration. More info: http://fortawesome.github.io/Font-Awesome/ */
+@import url(http://thecodeplayer.com/uploads/fonts/fontawesome/css/font-awesome.min.css);
+
+// Minhas Variaveis
+$cor_azul: #282165;
+$cor_verde: #00A556;
+$cor_branco_fosco: #E7E8E3;
+
+$cor_verde_01: #96BC33;
+$cor_verde_02: #2F7938;
+$cor_verde_03: #388D3D;
+
+$f_cor_white_01: #E7E8E3;
+
+
+
+// Variaveis Foundation
+// foundation functions
+@import "foundation/functions";
+
+$row-width: 1000px;
+$column-gutter: rem-calc(30);
+
+// Accordion Settings
+$accordion-navigation-padding: rem-calc(20);
+$accordion-navigation-bg-color: $cor_verde_01;
+$accordion-navigation-font-color: $cor_branco_fosco;
+
+$accordion-navigation-hover-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -15%);
+$accordion-navigation-active-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -10%);
+
+// Color Settings
+$main-color: $cor_verde_01;
+$primary-color: $cor_verde_01;
+$secondary-color: $cor_verde;
+
+// Typography Settings
+$header-font-family: 'Cabin', sans-serif;
+$body-font-family: 'Oxygen', sans-serif;
+
+// Top Bar
+$topbar-title-weight: bold;
+$color_top_01: #EEEDFA;
+$fcolor_top_01: #262C35;
+
+$topbar-bg-color: $color_top_01;
+$topbar-link-color: $fcolor_top_01;
+
+$topbar-dropdown-bg: $main-color;
+$topbar-dropdown-link-bg: $main-color;
+$topbar-dropdown-label-bg: $main-color;
+$topbar-link-bg-hover:  $secondary-color;
+
+// Tabs Settings
+$tabs-navigation-bg-color: $cor_verde_03;
+$tabs-navigation-font-color: white;
+$tabs-navigation-active-font-color: black;
+
+//Compass/CSS3
+@import "compass/css3";
+
+// Imports para o fondation
+@import "settings";
+@import "foundation";
+
+@import "normalize";
+
+// Or selectively include components
+// @import
+//   "foundation/components/accordion",
+//   "foundation/components/alert-boxes",
+//   "foundation/components/block-grid",
+//   "foundation/components/breadcrumbs",
+//   "foundation/components/button-groups",
+//   "foundation/components/buttons",
+//   "foundation/components/clearing",
+//   "foundation/components/dropdown",
+//   "foundation/components/dropdown-buttons",
+//   "foundation/components/flex-video",
+//   "foundation/components/forms",
+//   "foundation/components/grid",
+//   "foundation/components/inline-lists",
+//   "foundation/components/joyride",
+//   "foundation/components/keystrokes",
+//   "foundation/components/labels",
+//   "foundation/components/magellan",
+//   "foundation/components/orbit",
+//   "foundation/components/pagination",
+//   "foundation/components/panels",
+//   "foundation/components/pricing-tables",
+//   "foundation/components/progress-bars",
+//   "foundation/components/reveal",
+//   "foundation/components/side-nav",
+//   "foundation/components/split-buttons",
+//   "foundation/components/sub-nav",
+//   "foundation/components/switches",
+//   "foundation/components/tables",
+//   "foundation/components/tabs",
+//   "foundation/components/thumbs",
+//   "foundation/components/tooltips",
+//   "foundation/components/top-bar",
+//   "foundation/components/type",
+//   "foundation/components/offcanvas",
+//   "foundation/components/visibility";
+
+/* 
+INDICE
+	1 - Globals
+	2 - Cabelaçalho
+	3 - Estrutura
+	4 - Rodapé
+	5 - Estilo de Títulos
+	6 - Estilo de Texto
+	7 - Botões
+	8 - Navegação
+	9 - Formulários
+	10 - Extras / Miscelâneas
+	11 - Media Queries
+*/
+
+
+/********************* 1 - Globals ********************************/
+
+/********************* 2 - Cabelaçalho ****************************/
+
+#top-site-background {
+	width: 100%;
+	//@include background-image(linear-gradient(120deg, #AEEEC7, #E2FEE3, #F1FFEC));
+	border-bottom: 3px solid #388D3D;
+
+	background: white;
+	
+/* 	$img: '/img/fundo04.jpg';
+
+background: url($img) top center;
+background-size: 100%;
+opacity: 1; */
+
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 99999;
+
+    box-shadow: 0px 0px 5px #3B3B3B, 0px 0px 10px #5C5C5C, 0px 0px 15px #828282;
+}
+
+.margem-fixed {
+	width: 0;
+}
+
+#header-top-site {
+	padding: 10px 10px;
+}
+
+/********************* 3 - Estrutura ******************************/
+.admin-content {
+	margin-left: 220px;
+	background: white;
+}
+
+div.editable {
+	border: solid 2px transparent;
+	padding-left: 15px;
+	padding-right: 15px;
+
+	border-color: #C4C4C4;
+
+	min-height: 50px;
+
+	&::hover {
+		border-color: black;
+	}
+	
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+
+#fotoCorretor {
+	margin: auto;
+	max-width: 200px;
+	max-height: 200px;
+	border: 2px solid black;
+	box-shadow: -2px 2px 3px #43453A;
+}
+
+#tabela-corretores {
+	tbody {
+		overflow-y: auto;
+  		overflow-x: scroll;
+	}
+}
+
+.linha_split_decor {
+	clear: both;
+	width: 100%;
+	height: 3px;
+	
+}
+
+#linha_header_top {
+	background-color: $main-color;
+	top: 0;
+}
+
+#linha_header_bottom {
+	background-color: $secondary-color;
+	top: 45px;
+}
+
+#wrapper-site {
+	// background-color: #D0D1C9;
+	// background-color: rgba($cor_verde_01, .3);
+	// background-image: linear-gradient(white 2px, transparent 2px),
+	// linear-gradient(90deg, white 2px, transparent 2px),
+	// linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+	// linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+	// background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+	// background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+	
+	$cor_fundo_branco: #E6E6E6;
+
+	$cor_verde_claro_01: #85C88D;
+
+	background-color: $cor_fundo_branco;
+
+
+
+	.fundo-secao-default {
+		// @include background-image(linear-gradient(white, #cccccc, #aaaaaa));
+
+		background-size: 100%;
+		padding-bottom: 30px;
+
+		// @include background-image(linear-gradient( $cor_verde_01, adjust-lightness($cor_verde_01, +20)));
+
+		h1.titulo-parte-home {
+			padding: 0; margin: 0;
+
+			font-size: 30px;
+
+			margin-left: 10px;
+
+			color: rgb(47, 121, 56);
+			text-shadow: rgb(156, 156, 156) -2px 2px 0px;
+		}
+
+		// -webkit-box-shadow: inset 0px 0px 33px 16px rgba(0,0,0,0.75);
+		// 	-moz-box-shadow: inset 0px 0px 33px 16px rgba(0,0,0,0.75);
+		// 	box-shadow: inset 0px 0px 33px 16px rgba(0,0,0,0.75);
+		
+	}
+
+	$cor_fundo_secao: #D3FF5F;
+
+	.fundo-secao-site-a {
+		background-color: adjust-lightness($cor_fundo_secao, +25);
+	}
+
+	.fundo-secao-site-b {
+		background-color: adjust-lightness($cor_fundo_secao, +15);
+	}
+
+}
+
+/* Fundo do Banner */
+.fundo-banner {
+	width: 100%;
+	background: black;
+}
+
+
+.fundo-pagina-secao {
+	background-color: white;
+}
+
+.padding_vinte {
+	padding: 20px !important;
+}
+
+.widget-top {
+	min-height: 330px;
+}
+
+.widget-bottom {
+	min-height: 200px;
+}
+
+.widget-box {
+	background: white;
+}
+
+.padded-column {
+	padding: 10px
+}
+
+.column-content {
+
+}
+
+.fundo-banner {
+	padding-bottom: 1px;
+}
+
+.hr_split_section {
+	height: 2px;
+	width: 100%;
+
+	@include background-image(linear-gradient(to right, #EBFCC9, #414141, #EBFCC9));
+
+	box-shadow: 0px 20px 30px black;
+	
+  	// background-image: -svg(linear-gradient(120deg, $cor_verde_01, $cor_verde_02, $cor_verde_01));
+
+	// @include box-shadow( black 0 0 10px, black 0 0 10px, black 0 0 10px, black 0 0 10px, black 0 0 10px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 50px, black 0 0 50px, black 0 0 50px, black 0 0 50px, black 0 0 3px 1px inset);
+}
+
+.tabs-content {
+	margin: 0;
+
+	.content {
+		padding: 20px !important;
+	}
+}
+
+.bg-content {
+	background-color: white;
+}
+
+/********************* 4 - Rodapé *********************************/
+footer#rodape, .push {
+	clear: both;
+}
+
+footer#rodape {
+	color: white;
+	background: $cor_verde_02;
+	width: 100% !important;
+}
+
+
+/********************* 5 - Estilo de Títulos *********************/
+
+.titulo-accordion {
+	color: white;
+	font-size: 20px;
+	text-shadow: 1px 2px 3px $cor_verde_01, 0 0 0 #000, 1px 2px 3px $cor_verde_01;
+	font-weight: bold;
+}
+
+.tabs {
+	dd.active {
+		font-weight: bold !important;
+	}
+}
+/********************* 6 - Estilo de Texto ************************/
+
+.tipo-telefone {
+	float: left;
+	margin-left: 5px;
+}
+
+/********************* 7 - Botões *********************************/
+
+.default-btn-cms {
+	$btn-color: $main-color;
+
+	@include border-radius(5px, 5px);
+	background-color: $btn-color !important;
+
+	&:hover {
+		background-color: adjust-lightness($btn-color, +13) !important;
+	}
+}
+
+.btn-cms {
+	margin-top: 3px;
+}
+
+.quit-btn-cms {
+	$btn-color: #970004;
+
+	@include border-radius(5px, 5px);
+	background-color: $btn-color !important;
+
+	&:hover {
+		background-color: adjust-lightness($btn-color, +10) !important;
+	}
+}
+
+.btn-top-header {
+	width: 100%;
+	padding: 6px 0;
+}
+
+.link-top {
+	padding-left: 10px;
+}
+
+/* Links Top Header */
+.btn-top-header {
+	border-radius: 25px;
+	box-shadow: -1px 1px 5px black;
+
+}
+
+input.buscar-site {
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+.btn-ir-busca {
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+
+.f-dropdown {
+	box-shadow: -2px 2px 10px black;
+}
+
+/********************* 8 - Navegação ******************************/
+
+/* Base Menu Responsivo */
+.barra-menu {
+	list-style:none; 
+	float:left;
+
+	ul {
+		list-style: none;
+	}
+
+	li{
+		position:relative;
+		float:left;
+
+		ul{
+			position:absolute; 
+			display:none;
+
+			li {
+				display:block;
+			}
+		}
+
+		&:hover ul, li.over ul { display: block; }
+	}
+}
+
+.navheader { 
+  	font-size: 12px;
+}
+
+.slide-trigger {
+  	display: none; /* need this */
+
+  	span {
+	  display: block;
+	  float: right;
+	}
+}
+
+/* menu header */
+#menu-principal {
+
+	font-weight: bold !important;
+
+	margin-bottom: 0px;
+	margin-left: 5%;
+
+	.box-menu {
+		
+		background: #FFFFFF;
+		border: solid 1px #FFFFFF;
+		font-size: 0.875rem;
+		z-index: 89;
+		max-width: 200px;
+		box-shadow: -2px 2px 10px black;
+
+		&:before{
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+			border: inset 6px;
+			border-color: transparent transparent #FFFFFF transparent;
+			border-bottom-style: solid;
+			position: absolute;
+			top: -12px;
+			left: 50px;
+			z-index: 89;
+		}
+
+		li {
+
+			border-bottom: 1px solid #BABCB1 !important;
+
+			text-align: center !important;
+			padding-left: 0 !important;
+
+			&:hover {
+				background: $cor_verde_01;
+
+				// -webkit-transform: scale(1.1);
+				// -moz-transform: scale(1.1);
+				// -ms-transform: scale(1.1);
+				// -o-transform: scale(1.1);
+				// transform: scale(1.1); 
+				
+				a {
+					color: $f_cor_white_01 !important;
+				}
+			}
+
+			
+	
+			&:last-child {
+				border-bottom: none !important;
+			}
+		}
+
+	}
+
+	/* the triangle but its being cut off */
+
+	ul.navigation {
+
+		li { 
+			width: 20%;
+			text-align: center;
+
+			border-left-width: 2px;
+			border-left-style: groove;
+			border-color: white;
+
+			&:first-child {
+				border: none;
+			}
+
+			ul {
+				background: white;
+				width: 15em;
+				margin-left: 0;
+
+				li {
+					width: 100%;
+					text-align: left;
+					border: none;
+
+					padding: 5px;
+					padding-left: 20px;
+				}
+			}
+		}
+	} 
+}
+
+#admin-menu {
+	width: 220px;
+	margin-top: 106px;
+	background: $main-color;
+
+	height:100vh;
+
+	ul{
+		margin: 0;
+		padding: 0;
+
+		li {
+
+			background-color: $secondary-color;
+			@include transition-property(all);
+			@include transition-duration(0.3s);
+
+			&:hover {
+				background-color: adjust-lightness($secondary-color, +8);
+			}
+
+			li {
+				padding-left: 20%;
+
+				@include transition-property(all);
+  				@include transition-duration(0.3s);
+
+				&:hover {
+					border-left: 5px solid adjust-lightness($main-color, +15);
+				}
+			}
+		}
+	}
+
+	h3 {
+		font-size: 1.4em;
+		color: white;
+		@include background-image(linear-gradient( $main-color, adjust-lightness($main-color, +10)));
+
+		@include transition-property(all);
+		@include transition-duration(0.3s);
+
+		&:hover {
+			@include background-image(linear-gradient( adjust-lightness($main-color, +20), adjust-lightness($main-color, +30)));
+		}
+	}
+	
+	a {
+		color: white;
+	}
+
+
+}
+
+.menu-accordion {
+	ul {
+		list-style-type: none;
+		
+		h3 {
+			cursor: pointer;
+			margin: 0 !important;
+			padding: 5px !important;
+		}
+
+		ul {
+			display: none;
+			li {
+				a{
+					display: block;
+				}
+			}
+		}
+
+		li.active ul {
+			display: block;
+		}
+	}
+}
+
+.menu-links {
+	li {
+		
+		a {
+			font-weight: bold !important;
+		}
+	}
+}
+
+/********************* 9 - Formulários ****************************/
+#drop_login {
+	padding: 20px;
+	
+}
+
+/********************* 10 - Extras/Miscelâneas ********************/
+
+.no-margin-all {
+	margin: 0 !important;
+} 
+
+.no-margin-left {
+	margin-left: 0 !important;
+}
+
+.no-margin-right {
+	margin-right: 0 !important;
+}
+
+.no-margin-left-right {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.no-padding-all {
+	padding: 0 !important;
+}
+
+
+.no-padding-left {
+	padding-left: 0 !important;
+}
+
+.no-padding-right {
+	padding-right: 0 !important;
+}
+
+.no-padding-left-right {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.small-symbol {
+	font-weight: normal;
+	font-size: 80%;
+}
+
+.box_shadow {
+	box-shadow: -3px 3px 1px #45473D, -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
+}
+
+/********************* 11 - Media Queries  ************************/
+
+@media only screen and (max-width: 64em) {
+	header#header-top-site {
+		padding: 0 ;
+	}
+
+	#logo {
+		margin-bottom: 10px;
+	}
+
+	#links-top {
+		padding-top: 10px;
+	}
+
+	.link-top {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.btn-top-header:first-child {
+		margin-bottom: 10px;
+	}
+}
+
+@media #{$medium-only} { 
+	#menu-principal {
+		margin-left: -5%;
+	}
+}
+
+@media #{$small-only} { 
+	.logo-img {
+		display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	}
+
+	#menu-principal {
+		margin-top: 10px;
+	}
+
+	.slide-trigger { display: block; }
+	.no-js .slide-trigger { display: none; }
+	.navigation { display: none; }
+	.no-js .navigation { display: block; }
+	.navigation { margin: 0 15px; }
+	.navigation li { float: none; }
+	.navigation li a { border-bottom: 1px solid #fff; }
+
+}
