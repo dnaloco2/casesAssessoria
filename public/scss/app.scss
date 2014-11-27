@@ -1,5 +1,6 @@
 // Minhas Fonts
 @import "myfonts";
+@import "icomoon";
 
 /*CSS file for fontawesome - an iconfont we will be using. This CSS file imported contains the font-face declaration. More info: http://fortawesome.github.io/Font-Awesome/ */
 @import url(http://thecodeplayer.com/uploads/fonts/fontawesome/css/font-awesome.min.css);
@@ -14,8 +15,6 @@ $cor_verde_02: #2F7938;
 $cor_verde_03: #388D3D;
 
 $f_cor_white_01: #E7E8E3;
-
-
 
 // Variaveis Foundation
 // foundation functions
@@ -129,9 +128,13 @@ INDICE
 #top-site-background {
 	width: 100%;
 	//@include background-image(linear-gradient(120deg, #AEEEC7, #E2FEE3, #F1FFEC));
-	border-bottom: 3px solid #388D3D;
+	border-bottom: 1px solid #6C715E;
 
-	background: white;
+	background: url('/img/topo-cru.png');
+
+	background-size: 100% 100%;
+
+	box-shadow: 0px 1px 5px #4D4F44;
 	
 /* 	$img: '/img/fundo04.jpg';
 
@@ -144,28 +147,26 @@ opacity: 1; */
     top: 0px;
     z-index: 99999;
 
-    box-shadow: 0px 0px 5px #3B3B3B, 0px 0px 10px #5C5C5C, 0px 0px 15px #828282;
+    // box-shadow: 0px 0px 5px #191919, 0px 0px 10px #282828, 0px 0px 15px #292929;
 }
 
 .margem-fixed {
 	width: 0;
 }
 
-#header-top-site {
-	padding: 10px 10px;
-}
 
 /********************* 3 - Estrutura ******************************/
 .admin-content {
 	margin-left: 220px;
 	background: white;
+	padding: 20px;
 }
 
 div.editable {
 	border: solid 2px transparent;
 	padding-left: 15px;
 	padding-right: 15px;
-
+	
 	border-color: #C4C4C4;
 
 	min-height: 50px;
@@ -228,8 +229,6 @@ div.editable {
 
 	background-color: $cor_fundo_branco;
 
-
-
 	.fundo-secao-default {
 		// @include background-image(linear-gradient(white, #cccccc, #aaaaaa));
 
@@ -239,30 +238,57 @@ div.editable {
 		// @include background-image(linear-gradient( $cor_verde_01, adjust-lightness($cor_verde_01, +20)));
 
 		h1.titulo-parte-home {
+			width:100%;
+
+			text-align: center;
+
 			padding: 0; margin: 0;
 
-			font-size: 30px;
+			font-size: 24px !important;
 
-			margin-left: 10px;
+			background: white;
+			border-bottom: 1px solid gray;
+			margin-bottom: 20px !important;
+			color: gray !important;
+				
+		}
+		
+		h1.titulo-parte-home-a {
+			color: rgb( 65, 65, 65 );
 
-			color: rgb(47, 121, 56);
-			text-shadow: rgb(156, 156, 156) -2px 2px 0px;
+			font-size: 50px;
 		}
 
+		h1.titulo-parte-home-b {
+			color: rgb( 80, 80, 80 );
+			
+			font-size: 50px;
+		}
 		// -webkit-box-shadow: inset 0px 0px 33px 16px rgba(0,0,0,0.75);
 		// 	-moz-box-shadow: inset 0px 0px 33px 16px rgba(0,0,0,0.75);
 		// 	box-shadow: inset 0px 0px 33px 16px rgba(0,0,0,0.75);
 		
 	}
 
-	$cor_fundo_secao: #D3FF5F;
+	$cor_fundo_secao: #E1E2DE;
+	$ammount: 15;
 
 	.fundo-secao-site-a {
-		background-color: adjust-lightness($cor_fundo_secao, +25);
+		$cor_1: adjust-lightness($cor_fundo_secao, -$ammount);
+		$cor_2: $cor_fundo_secao;
+
+		background-color: $cor_fundo_secao;
+
+		@include background-image(linear-gradient(to right, $cor_1, $cor_2, $cor_1));
 	}
 
 	.fundo-secao-site-b {
-		background-color: adjust-lightness($cor_fundo_secao, +15);
+		$cor_1: $cor_fundo_secao;
+		$cor_2: adjust-lightness($cor_fundo_secao, +$ammount);
+
+		background-color: adjust-lightness($cor_fundo_secao, +$ammount);
+
+		@include background-image(linear-gradient(to right, $cor_1, $cor_2, $cor_1));
 	}
 
 }
@@ -271,23 +297,33 @@ div.editable {
 .fundo-banner {
 	width: 100%;
 	background: black;
+	
 }
 
+.banner_home {
+
+    background-image: url('/img/banner-cases.png');
+	background-repeat: no-repeat;
+	height: 440px;
+	background-position: center; 
+	width: 100%;
+	margin-bottom: -1px;
+}
 
 .fundo-pagina-secao {
 	background-color: white;
 }
 
-.padding_vinte {
-	padding: 20px !important;
-}
-
 .widget-top {
-	min-height: 330px;
+	min-height: 478px;
 }
 
 .widget-bottom {
 	min-height: 200px;
+}
+
+.widget-top-precise {
+	height: 478px;
 }
 
 .widget-box {
@@ -310,13 +346,9 @@ div.editable {
 	height: 2px;
 	width: 100%;
 
-	@include background-image(linear-gradient(to right, #EBFCC9, #414141, #EBFCC9));
+	@include background-image(linear-gradient(to right, #9B9B9B, #6B6B6B, #9B9B9B));
 
-	box-shadow: 0px 20px 30px black;
-	
   	// background-image: -svg(linear-gradient(120deg, $cor_verde_01, $cor_verde_02, $cor_verde_01));
-
-	// @include box-shadow( black 0 0 10px, black 0 0 10px, black 0 0 10px, black 0 0 10px, black 0 0 10px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 30px, black 0 0 50px, black 0 0 50px, black 0 0 50px, black 0 0 50px, black 0 0 3px 1px inset);
 }
 
 .tabs-content {
@@ -331,6 +363,27 @@ div.editable {
 	background-color: white;
 }
 
+.ng-table-counts {
+	display: none;
+	margin: 0 !important;
+}
+
+.table_clean {
+  	margin-bottom: 0px !important;
+
+	border: none !important;
+}
+
+tr.ng-scope {
+	background: white !important;
+
+}
+
+.pagination.ng-table-pagination {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
 /********************* 4 - Rodapé *********************************/
 footer#rodape, .push {
 	clear: both;
@@ -338,7 +391,7 @@ footer#rodape, .push {
 
 footer#rodape {
 	color: white;
-	background: $cor_verde_02;
+	background-color: #292B24;
 	width: 100% !important;
 }
 
@@ -357,6 +410,13 @@ footer#rodape {
 		font-weight: bold !important;
 	}
 }
+
+.widget-title {
+  background: $cor_verde_01;
+  padding: 5px 20px;
+  color: white;
+}
+
 /********************* 6 - Estilo de Texto ************************/
 
 .tipo-telefone {
@@ -364,12 +424,65 @@ footer#rodape {
 	margin-left: 5px;
 }
 
+.links_uteis {
+	font-size: 20px;
+}
+
 /********************* 7 - Botões *********************************/
+
+.btn_social {
+	$tamanho_btn: 32px;
+
+	width: $tamanho_btn;
+	height: $tamanho_btn;
+	overflow: hidden;
+
+	cursor: pointer;
+
+	div {
+		width: $tamanho_btn;
+		height: $tamanho_btn;
+
+		@include border-radius(5px);
+
+		font-size: 20px;
+		text-align: center;
+	}
+
+	.btn_social_flap {
+
+		transition: transform 0.15s ease-in;
+
+
+	}
+
+	.btn_social_up {
+		background: #D8DBDF;
+	}
+
+	.btn_social_down {
+		background: #EFF0F1;
+	}
+
+	.icon-facebook {
+		color: #3C5C99;
+	}
+
+	.icon-twitter {
+		color: #00ABF0;
+	}
+
+	&:hover {
+		.btn_social_flap {
+			transform:translateY(-$tamanho_btn);
+		}
+	}
+}
 
 .default-btn-cms {
 	$btn-color: $main-color;
 
-	@include border-radius(5px, 5px);
+	@include border-radius(5px);
 	background-color: $btn-color !important;
 
 	&:hover {
@@ -392,19 +505,18 @@ footer#rodape {
 	}
 }
 
-.btn-top-header {
-	width: 100%;
-	padding: 6px 0;
-}
-
-.link-top {
-	padding-left: 10px;
-}
-
 /* Links Top Header */
 .btn-top-header {
-	border-radius: 25px;
-	box-shadow: -1px 1px 5px black;
+	width: 100%;
+	padding: 3px 0;
+}
+
+.link-top button {
+	padding-left: 10px;
+	margin-bottom: 30px;
+	background-color: #a6a6a6;
+	color: white;
+	@include border-radius(5px);
 
 }
 
@@ -420,6 +532,13 @@ input.buscar-site {
 
 .f-dropdown {
 	box-shadow: -2px 2px 10px black;
+}
+
+/* Botões Social Media */
+
+#social-media-buttons {
+
+
 }
 
 /********************* 8 - Navegação ******************************/
@@ -463,22 +582,24 @@ input.buscar-site {
 	}
 }
 
+$cinza_li_hover: #a6a6a6;
+
 /* menu header */
 #menu-principal {
+	margin-bottom: 5px;
 
 	font-weight: bold !important;
 
-	margin-bottom: 0px;
-	margin-left: 5%;
 
 	.box-menu {
+		$cinza_li_hover: #a6a6a6;
 		
 		background: #FFFFFF;
-		border: solid 1px #FFFFFF;
+
 		font-size: 0.875rem;
 		z-index: 89;
 		max-width: 200px;
-		box-shadow: -2px 2px 10px black;
+		box-shadow: -1px 1px 5px #767968;
 
 		&:before{
 			content: "";
@@ -496,13 +617,15 @@ input.buscar-site {
 
 		li {
 
-			border-bottom: 1px solid #BABCB1 !important;
-
 			text-align: center !important;
 			padding-left: 0 !important;
 
+			a {
+				color: black;
+			}
+
 			&:hover {
-				background: $cor_verde_01;
+				background: $cinza_li_hover;
 
 				// -webkit-transform: scale(1.1);
 				// -moz-transform: scale(1.1);
@@ -511,7 +634,7 @@ input.buscar-site {
 				// transform: scale(1.1); 
 				
 				a {
-					color: $f_cor_white_01 !important;
+					color: white !important;
 				}
 			}
 
@@ -525,19 +648,25 @@ input.buscar-site {
 	}
 
 	/* the triangle but its being cut off */
-
 	ul.navigation {
 
 		li { 
 			width: 20%;
 			text-align: center;
 
-			border-left-width: 2px;
-			border-left-style: groove;
-			border-color: white;
+			border-left: 1px solid #ABB1AB;
+
+			a {
+				color: #7e7e7e;
+				font-size: 14px;
+			}
 
 			&:first-child {
 				border: none;
+			}
+
+			&:last-child {
+				text-align: right;
 			}
 
 			ul {
@@ -558,12 +687,34 @@ input.buscar-site {
 	} 
 }
 
+#drop_atendimento {
+	li {
+
+		a {
+			color: black;
+		}
+
+		&:hover {
+			background: $cinza_li_hover;
+			
+			a {
+				color: white !important;
+			}
+		}
+
+	}
+}
+
+/* inicio admin menu */
 #admin-menu {
 	width: 220px;
-	margin-top: 106px;
 	background: $main-color;
 
 	height:100vh;
+
+	#menu_title {
+		background: $main-color !important;
+	}
 
 	ul{
 		margin: 0;
@@ -635,7 +786,7 @@ input.buscar-site {
 			display: block;
 		}
 	}
-}
+} /* fim admin menu */
 
 .menu-links {
 	li {
@@ -645,6 +796,16 @@ input.buscar-site {
 		}
 	}
 }
+
+#links-top {
+	padding-top: 10px;
+	margin-top: 0px;
+}
+
+#logo {
+	margin-top: 2px;
+}
+
 
 /********************* 9 - Formulários ****************************/
 #drop_login {
@@ -675,7 +836,6 @@ input.buscar-site {
 	padding: 0 !important;
 }
 
-
 .no-padding-left {
 	padding-left: 0 !important;
 }
@@ -695,7 +855,31 @@ input.buscar-site {
 }
 
 .box_shadow {
-	box-shadow: -3px 3px 1px #45473D, -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
+	box-shadow: -5px 5px 4px #45473D, -1px 0 #484A40, 0 1px #484A40, 1px 0 #484A40, 0 -1px #484A40;
+}
+
+.border_left_1 {
+	border-left: 1px solid #ABB1AB;
+}
+
+.border_right_1 {
+	border-right: 1px solid #ABB1AB;
+}
+
+.padding_dez {
+	padding: 10px !important;
+}
+
+.padding_quinze {
+	padding: 15px !important;
+}
+
+.padding_vinte {
+	padding: 20px !important;
+}
+
+.texto_centralizado {
+	text-align: center;
 }
 
 /********************* 11 - Media Queries  ************************/
@@ -711,6 +895,7 @@ input.buscar-site {
 
 	#links-top {
 		padding-top: 10px;
+
 	}
 
 	.link-top {

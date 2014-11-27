@@ -1,3 +1,27 @@
+<?php
+$route = $this->getHelperPluginManager()->getServiceLocator()->get('request')->getUri()->getPath(); 
+$isAdmin = false;
+
+$isConteudo = false;
+
+if (strpos($route, 'admin') !== false) {
+    $isAdmin = true;
+}
+
+if (strpos($route, 'conteudo') !== false) {
+    $isConteudo = true;
+}
+
+?>
+
+<?php
+    header('Access-Control-Allow-Origin: *');  //I have also tried the * wildcard and get the same response
+    header("Access-Control-Allow-Credentials: true");
+    header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+    header('Access-Control-Max-Age: 1000');
+    header('Access-Control-Allow-Headers: Content-Type, Content-Range, Content-Disposition, Content-Description');
+?>
+
 <?php echo $this->doctype(); ?>
 
 <html lang="en">
@@ -17,10 +41,16 @@
         <!-- Scripts -->
         <?php echo $this->headScript()
             ->appendFile($this->basePath() . '/js/plugins/blockui-master/jquery.blockUI.js')
+            ->appendFile($this->basePath() . '/js/plugins/jquery.zrssfeed.min.js')
+            ->appendFile($this->basePath() . '/js/plugins/jquery.vticker.js')
+            ->appendFile($this->basePath() . '/js/plugins/jquery.jfeed.pack.js')
+            ->appendFile($this->basePath() . '/js/plugins/jquery.flips.min.js')
             ->appendFile($this->basePath() . '/bower_components/angular/angular.js')
             ->appendFile($this->basePath() . '/bower_components/angular-route/angular-route.js')
             ->appendFile($this->basePath() . '/bower_components/angular-resource/angular-resource.js')
+            ->appendFile($this->basePath() . '/js/plugins/ng-table.js')
             ->appendFile($this->basePath() . '/js/plugins/mobile.collapse.js')
+            ->appendFile($this->basePath() . '/js/app/dirPagination.js')
             ->appendFile($this->basePath() . '/js/app/CmsApp.js')
             ->appendFile($this->basePath() . '/js/app/Services.js')
             ->appendFile($this->basePath() . '/js/app/Directives.js')
@@ -36,56 +66,94 @@
     <body ng-app='CmsApp'>
 
       <div id="wrapper-site" data-ng-controller="RouteCtrl">
-        
+
+        <?php if (!$isAdmin && !$isConteudo): ?>
         <div id="top-site-background">
 
           <header id="header-top-site" class="row">
 
-            <div id="logo" class="large-2 medium-6 columns">
-              <a href="/"><img class="logo-img" src="/img/teste-logo01.png" alt="logotipo da empresa Cases Assessoria"></a>
+            <div id="logo" class="large-4 medium-6 columns">
+              <a href="/" target="_self"><img class="logo-img" src="/img/Logo-Cases-Escolhida.png" alt="logotipo da empresa Cases Assessoria"></a>
             </div>  <!-- LOGOTIPO  -->
 
             <section id="links-top">
 
 
-              <div class="large-3 large-offset-1 medium-6 small-12 column link-top no-padding-left">
-                <form action="">
-                  <div class="row">
-                    <div class="large-12 columns">
-                      <div class="row collapse">
-                        <div class="small-10 columns">
-                          <input class="buscar-site" type="text" placeholder="Buscar no Site">
-                        </div>
-                        <div class="small-2 columns">
-                          <a href="#" class="button postfix btn-ir-busca">Ir</a>
+              <div id="social-media-buttons" class="large-2 medium-6 small-12 column link-top no-padding-left">
+                
+                <div class="row">
+
+                  <div class="large-4 large-offset-4 border_right_1 columns">
+
+                      <div class="btn_social">
+                        <div class="btn_social_flap">
+                          <div class="btn_social_up">
+                            <span class="icon-facebook"></span>
+                          </div>
+                          <div class="btn_social_down">
+                            <span class="icon-facebook"></span>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                     
                   </div>
-                </form>
+                  <div class="large-4 columns">
+
+                      <div class="btn_social">
+                        <div class="btn_social_flap">
+                          <div class="btn_social_up">
+                            <span class="icon-twitter"></span>
+                          </div>
+                          <div class="btn_social_down">
+                            <span class="icon-twitter"></span>
+                          </div>
+                        </div>
+                      </div>
+
+                  </div>
+                </div>
+
               </div>
 
 
               <div class="large-3 medium-6 small-12 link-top columns">
-                <button data-dropdown="drop_atendimento" aria-controls="drop_atendimento" aria-expanded="false" class="dropdown btn-atendimento btn-top-header">Atendimento</button>
+                <button data-dropdown="drop_atendimento" aria-controls="drop_atendimento" aria-expanded="false" class="dropdown btn-atendimento btn-top-header"><span class="icon-phone"></span>&nbsp;&nbsp;&nbsp;Atendimento</button>
                 <ul id="drop_atendimento" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
-                  <li><a href="#">Fale Conosco</a></li>
-                  <li><a href="#">Chat On-Line</a></li>
-                  <li><a href="#">Telefones</a></li>
+                  <li><a href="#"><span class="icon-feather"></span>&nbsp;&nbsp;&nbsp;Fale Conosco</a></li>
+                  <li><a href="#"><span class="icon-bubbles2"></span>&nbsp;&nbsp;&nbsp;Chat On-Line</a></li>
+                  <li><a href="#"><span class="icon-phone2"></span>&nbsp;&nbsp;&nbsp;Telefones</a></li>
                 </ul>
               </div>
 
               <div class="large-3 medium-6 small-12 link-top columns no-padding-right">
-                <button data-dropdown="drop_login" aria-controls="drop_login" aria-expanded="false" class="dropdown btn-atendimento btn-top-header">Portal do Corretor</button>
+                <button data-dropdown="drop_login" aria-controls="drop_login" aria-expanded="false" class="dropdown btn-atendimento btn-top-header">
+                  <?php if($this->UserIdentity('CmsUser')): ?>
+                  <span class="icon-unlocked"></span>
+                  <?php else: ?>
+                  <span class="icon-lock2"></span>
+                  <?php endif; ?>
+                  &nbsp;Portal do Corretor
+
+                </button>
+
                 <ul id="drop_login" data-dropdown-content class="f-dropdown small" aria-hidden="true" tabindex="-1">
-                  <form action="&#x2F;auth" method="post" name="Login" id="Login">
-                  <li>
-                    <label><span>Email: </span><input type="text" name="email" placeholder="Entre&#x20;com&#x20;o&#x20;Email" value=""></label>
-                    <label><span>Password: </span><input type="password" name="password" placeholder="Entre&#x20;com&#x20;a&#x20;senha" value=""></label>
-                  </li>
-                  <li><a href="" class="button expand">Autenticar</a></li>
-                  <li><a href="" class="button expand">Esqueci minha senha</a></li>
-                  </form>
+                   <?php if ($this->UserIdentity('CmsUser')): ?>
+                    <li class="has-form show-for-large-up">
+                      <a href="/admin" class="button btn-cms" target="_self"><span class="icon-exit"></span>&nbsp;Área Administrativa</a>
+                    </li>
+                    <li class="has-form show-for-large-up">
+                      <a href="/auth/logout" class="button btn-cms" target="_self"><span class="icon-exit"></span>&nbsp;Sair</a>
+                    </li>
+                  <?php else: ?>
+                    <form action="/auth" method="post" name="Login" id="login_form">
+                      <li>
+                        <label><span>Email: </span><input type="text" name="email" placeholder="Entre&#x20;com&#x20;o&#x20;Email" value=""></label>
+                        <label><span>Password: </span><input type="password" name="password" placeholder="Entre&#x20;com&#x20;a&#x20;senha" value=""></label>
+                      </li>
+                      <li><button class="button expand" ng-click="realizarLogin()">Autenticar</button></li>
+                      <li><button class="button expand">Esqueci minha senha</button></li>
+                    </form>
+                  <?php endif; ?>
                 </ul>
               </div>
 
@@ -94,14 +162,14 @@
 
             <section id="links-bottom">
 
-              <nav id="menu-principal" class="large-9 medium-12 small-12 columns barra-menu">
+              <nav id="menu-principal" class="large-8 medium-12 small-12 columns barra-menu">
 
                 <h2 class="navheader slide-trigger">Menu <span></span></h2>
 
                 <ul class="navigation group">
 
                   <li><a href="#quem-somos-page" data-ng-click="anchorSection('#quem-somos-page')">Quem Somos</a></li>
-                  <li><a href="#servicos-page" data-ng-click="anchorSection('#servicos-page')"><span class="small-symbol">+</span>Servicos</a>
+                  <li><a href="#servicos-page" data-ng-click="anchorSection('#servicos-page')"><span class="small-symbol">+</span> Servicos</a>
                     <ul class="box-menu">
                       <li><a href="#serv-painel-a-tecn" data-ng-click="servicosSection('#pagina-serv-painel-a-tecn', 1)">Apoio Técnico</a></li>
                       <li><a href="#serv-painel-a-com" data-ng-click="servicosSection('#pagina-serv-painel-a-com', 2)">Apoio Comercial</a></li>
@@ -110,7 +178,7 @@
                       <li><a href="#serv-painel-a-nav" data-ng-click="servicosSection('#pagina-serv-painel-a-nav', 5)">Apoio Resseguros</a></li>
                     </ul>
                   </li>
-                  <li><a href="#produtos-page" data-ng-click="anchorSection('#produtos-page')"><span class="small-symbol">+</span>Produtos</a>
+                  <li><a href="#produtos-page" data-ng-click="anchorSection('#produtos-page')"><span class="small-symbol">+</span> Produtos</a>
                     <ul class="box-menu">
                       <li><a href="#prod-pn-riscos-fin" data-ng-click="produtosSection('#pagina-prod-pn-riscos-fin', 1)">Riscos Financeiros</a></li>
                       <li><a href="#prod-pn-riscos-respn" data-ng-click="produtosSection('#pagina-prod-pn-riscos-respn', 2)">Riscos Patrimoniais & Responsabilidade Civil</a></li>
@@ -118,19 +186,21 @@
                       <li><a href="#prod-pn-transp" data-ng-click="produtosSection('#pagina-prod-pn-transp', 4)">Transportes</a></li>
                     </ul>
                   </li>
-                  <li><a href="#faq-glossario-page" data-ng-click="anchorSection('#faq-glossario-page')"><span class="small-symbol">+</span>FAQ/Gloassario</a>
+                  <li><a href="#faq-glossario-page" data-ng-click="anchorSection('#faq-glossario-page')"><span class="small-symbol">+</span> Ajuda</a>
                     <ul class="box-menu">
-                      <li><a href="#faq-glossario-page" data-ng-click="anchorSection('#faq-glossario-page')">FAQ/Gloassario</a></li>
+                      <li><a href="#faq-glossario-page" data-reveal-id="faqModal">FAQ</a></li>
+                      <li><a href="#faq-glossario-page" data-reveal-id="glossarioModal">Glossário</a></li>
                       <li><a href="#informativos-indicatores" data-ng-click="anchorSection('#informativos-indicatores')">Informativos/Indicadores</a></li>
                       <li><a href="#ultimas-noticias" data-ng-click="anchorSection('#ultimas-noticias')">Últimas Notícias</a></li>
                     </ul>
 
                   </li>
-                  <li class="has-dropdown"><a href="#"><span class="small-symbol">+</span>Para Corretores</a>
+                  <li class="has-dropdown"><a href="#"><span class="small-symbol">+</span> Para Corretores</a>
                     <ul class="box-menu">
-                      <li><a href="">Formulários</a></li>
-                      <li><a href="">Notificações</a></li>
-                      <li><a href="">Circuláres</a></li>
+
+                      <li><a href="#formularios" data-reveal-id="formulariosModal">Formulários</a></li>
+                      <li><a href="#notificacoes" data-reveal-id="notificacoesModal">Notificações</a></li>
+                      <li><a href="#circulares" data-reveal-id="circularesModal">Circulares</a></li>
 
                     </ul>
                   </li>
@@ -145,19 +215,12 @@
 
         </div> <!-- fim background Header  -->
         
-        <?php
-        $route = $this->getHelperPluginManager()->getServiceLocator()->get('request')->getUri()->getPath(); 
-        $isAdmin = false;
-
-        if (strpos($route, 'admin') !== false) {
-            $isAdmin = true;
-        }
-        ?>
+        <?php endif; ?>
 
         <?php if ($isAdmin and $this->UserIdentity('CmsUser')): ?>
 
         <aside id="admin-menu" class="fixed">
-
+          <h3 id="menu_title"><span class="icon-list"></span>&nbsp;&nbsp;MENU</h3>
           <nav class="menu-accordion">
             <ul>
               <li style="display: none">
@@ -170,20 +233,20 @@
               </li>
 
               <li ng-class="{'active': isContent}">
-                <h3>&nbsp;&nbsp;<span class="icon-drawer"></span>&nbsp;&nbsp;Conteudo</h3>
+                <h3>&nbsp;&nbsp;<span class="icon-drawer"></span>&nbsp;&nbsp;Conteúdo</h3>
                 <ul>
-                  <li><a href="/admin/content/posts" target="_self"><span class="icon-compose"></span>&nbsp;&nbsp;Posts</a></li>
-                  <li><a href="/admin/content/arquivostexto" target="_self"><span class="icon-note"></span>&nbsp;&nbsp;Arquivo</a></li>
-                  <li><a href="/admin/content/links" target="_self"><span class="icon-link"></span>&nbsp;&nbsp;Links</a></li>
-                  <li><a href="/admin/content/corretores" target="_self"><span class="icon-vcard"></span>&nbsp;&nbsp;Corretor</a></li>
+                  <li><a href="/admin/content/posts" target="_self"><span class="icon-compose"></span>&nbsp;Posts</a></li>
+                  <li><a href="/admin/content/arquivostexto" target="_self"><span class="icon-note"></span>&nbsp;Arquivo</a></li>
+                  <li><a href="/admin/content/links" target="_self"><span class="icon-link"></span>&nbsp;Links</a></li>
+                  <li><a href="/admin/content/corretores" target="_self"><span class="icon-vcard"></span>&nbsp;Colaboradores</a></li>
                 </ul>
               </li>
 
               <li ng-class="{'active': isUser}">
-                <h3>&nbsp;&nbsp;<span class="icon-users2"></span>&nbsp;&nbsp;Usuários</h3>
+                <h3>&nbsp;&nbsp;<span class="icon-users2"></span>&nbsp;Usuários</h3>
                 <ul>
-                  <li><a href="/admin/access/users/index" target="_self"><span class="icon-users3"></span>&nbsp;&nbsp;Listar</a></li>
-                  <li><a href="/admin/access/users/new" target="_self"><span class="icon-user-add"></span>&nbsp;&nbsp;Novo</a></li>
+                  <li><a href="/admin/access/users/index" target="_self"><span class="icon-users3"></span>&nbsp;Listar</a></li>
+                  <li><a href="/admin/access/users/new" target="_self"><span class="icon-user-add"></span>&nbsp;Novo</a></li>
                 </ul>
               </li>
 
@@ -191,6 +254,18 @@
                 <h3><span class="/admin/access/users"></span>Newsletter</h3>
                 <ul>
                   <li><a href="/admin/access/users/index" target="_self">Cadastrados</a></li>
+                </ul>
+              </li>
+
+              <li ng-class="{'active': isUser}">
+                <h3>&nbsp;&nbsp;<span class="icon-earth"></span>&nbsp;Site</h3>
+                <ul>
+                  <li>
+                    <a href="/" target="_self"><span class="icon-globe"></span>&nbsp;Ir Para o Site</a>
+                  </li>
+                  <li>
+                    <a href="/auth/logout" target="_self"><span class="icon-exit"></span>&nbsp;Sair</a>
+                  </li>
                 </ul>
               </li>
 
@@ -205,8 +280,10 @@
           <?php echo $this->content; ?>
           <div class="push"></div>
         </div>
-
+        
+        <?php if (!$isAdmin && !$isConteudo): ?>
         <footer id="rodape" ng-class="{'admin-content': isAdmin}">
+
           Footer
           <div class="row">
 
@@ -224,12 +301,17 @@
 
           </div>
         </footer>  <!-- fim rodape  -->
+        <?php endif; ?>
         
 
       </div>
         <?php echo $this->inlineScript() ?>
       
-      <script> 
+      <script>
+        $.ajaxPrefilter( "json script", function( options ) {
+          options.crossDomain = true;
+        });
+
         window.onload = function() {
             // Listen to the double click event.
             if ( window.addEventListener )
@@ -268,6 +350,7 @@
 
 
         $(document).ready(function () {
+          
           $(document).foundation();
 
           $(".menu-accordion h3").click(function(){
@@ -278,12 +361,24 @@
               $(this).next().slideDown();
             
             }
-          })
+          });
 
           $(".menu-accordion ul ul li").click(function(){
             $(".active").removeClass("active").addClass("inactive");
             $(this).removeClass("inactive").addClass("active");
           });
+
+          $('#noticias-tempo').rssfeed('http://servicos.cptec.inpe.br/RSS/Regiao.xml',{}, function(e) {
+            $(e).find('div.rssBody').vTicker({ showItems: 1});
+          });
+
+
+          $('#test').rssfeed('http://g1.globo.com/dynamo/brasil/rss2.xml', {
+            historical: true,
+            limit: 3,
+            offset: 1
+          });
+
 
         });
 

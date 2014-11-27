@@ -7,7 +7,9 @@ return array(
         'invokables' => array(
             __NAMESPACE__ . '\Controller\CorretoresRest' => __NAMESPACE__ .  '\Controller\CorretoresRestController',
             __NAMESPACE__ . '\Controller\EmailRest' => __NAMESPACE__ .  '\Controller\EmailRestController',
-            __NAMESPACE__ . '\Controller\PostsRest' => __NAMESPACE__ .  '\Controller\PostsRestController',
+            __NAMESPACE__ . '\Controller\ConteudoRest' => __NAMESPACE__ .  '\Controller\ConteudoRestController',
+            __NAMESPACE__ . '\Controller\LinksRest' => __NAMESPACE__ .  '\Controller\LinksRestController',
+            __NAMESPACE__ . '\Controller\ArquivosRest' => __NAMESPACE__ .  '\Controller\ArquivosRestController',
         )
     ),
     'router' => array(
@@ -25,7 +27,8 @@ return array(
                     )
                 )
             ),
-            'corretores-rest' => array(
+
+            'colaboradores-rest' => array(
                 'type' => 'Segment',
                 'options' => array(
                     'route' => '/api/corretores[/:id]',
@@ -38,7 +41,8 @@ return array(
                     )
                 )
             ),
-            'corretores-email' => array(
+
+            'users-email' => array(
                 'type' => 'Segment',
                 'options' => array(
                     'route' => '/api/checkemail[/:email]',
@@ -53,7 +57,7 @@ return array(
             ),
 
             'conteudo-rest' => array(
-                                'type' => 'Segment',
+                'type' => 'Segment',
                 'options' => array(
                     'route' => '/api/conteudo[/:categoria[/:id]]',
                     'constraints' => array(
@@ -61,10 +65,38 @@ return array(
                     ),
                     'defaults' => array(
                         '__NAMESPACE__' => __NAMESPACE__ . '\Controller',
-                        'controller' => 'PostsRest'
+                        'controller' => 'ConteudoRest'
                     )
                 )
             ),
+
+            'arquivo-rest' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/api/arquivo[/:categoria[/:id]]',
+                    'constraints' => array(
+                        'id' => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        '__NAMESPACE__' => __NAMESPACE__ . '\Controller',
+                        'controller' => 'ArquivosRest'
+                    )
+                )
+            ),
+
+            'links-rest' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/api/links[/:id]',
+                    'constraints' => array(
+                        'id' => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        '__NAMESPACE__' => __NAMESPACE__ . '\Controller',
+                        'controller' => 'LinksRest'
+                    )
+                )
+            )
         )
     ),
     'view_manager' => array(
