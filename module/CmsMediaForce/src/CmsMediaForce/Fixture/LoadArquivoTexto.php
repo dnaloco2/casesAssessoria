@@ -10,7 +10,7 @@ use CmsMediaForce\Entity\ArquivoTexto,
     CmsMediaForce\Entity\DadosCadConteudo;
 
 use CmsBase\Helper\SlugHelper;
-
+/*
 class LoadArquivoTexto extends AbstractFixture implements OrderedFixtureInterface {
 
     public function load(ObjectManager $manager) {
@@ -104,3 +104,5 @@ class LoadArquivoTexto extends AbstractFixture implements OrderedFixtureInterfac
         return 3;
     }
 }
+
+*/

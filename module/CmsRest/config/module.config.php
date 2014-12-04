@@ -10,10 +10,21 @@ return array(
             __NAMESPACE__ . '\Controller\ConteudoRest' => __NAMESPACE__ .  '\Controller\ConteudoRestController',
             __NAMESPACE__ . '\Controller\LinksRest' => __NAMESPACE__ .  '\Controller\LinksRestController',
             __NAMESPACE__ . '\Controller\ArquivosRest' => __NAMESPACE__ .  '\Controller\ArquivosRestController',
+            __NAMESPACE__ . '\Controller\FormContato' => __NAMESPACE__ .  '\Controller\FormContatoController',
         )
     ),
     'router' => array(
         'routes' => array(
+            'formcontato' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/api/formcontato',
+                    'defaults' => array(
+                        '__NAMESPACE__' => __NAMESPACE__ . '\Controller',
+                        'controller' => 'FormContato',
+                    ),
+                ),
+            ),
             'upload-images-rest' => array(
                 'type' => 'Segment',
                 'options' => array(

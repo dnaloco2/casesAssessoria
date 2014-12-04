@@ -23,6 +23,30 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-chevron-circle-down:before {
+	content: "\e655";
+}
+.icon-chevron-circle-right:before {
+	content: "\e656";
+}
+.icon-circle:before {
+	content: "\e657";
+}
+.icon-twitter4:before {
+	content: "\e650";
+}
+.icon-uniE603:before {
+	content: "\e603";
+}
+.icon-uniE604:before {
+	content: "\e604";
+}
+.icon-record:before {
+	content: "\e654";
+}
+.icon-twitter3:before {
+	content: "\e64f";
+}
 .icon-feather:before {
 	content: "\e64a";
 }
@@ -68,23 +92,20 @@
 .icon-docs:before {
 	content: "\e63a";
 }
-.icon-clipboard:before {
-	content: "\e647";
+.icon-target:before {
+	content: "\e653";
 }
-.icon-point-of-interest:before {
-	content: "\e645";
-}
-.icon-quick-contacts-dialer:before {
-	content: "\e63c";
-}
-.icon-content-copy:before {
-	content: "\e60b";
+.icon-facebook2:before {
+	content: "\e652";
 }
 .icon-earth:before {
 	content: "\e644";
 }
 .icon-globe:before {
 	content: "\e643";
+}
+.icon-twitter2:before {
+	content: "\e64e";
 }
 .icon-list:before {
 	content: "\e64d";
@@ -200,6 +221,21 @@
 .icon-trash:before {
 	content: "\e622";
 }
+.icon-clipboard:before {
+	content: "\e647";
+}
+.icon-social-twitter:before {
+	content: "\e651";
+}
+.icon-point-of-interest:before {
+	content: "\e645";
+}
+.icon-quick-contacts-dialer:before {
+	content: "\e63c";
+}
+.icon-content-copy:before {
+	content: "\e60b";
+}
 .icon-board:before {
 	content: "\e648";
 }
@@ -250,10 +286,4 @@
 }
 .icon-wallet:before {
 	content: "\e62c";
-}
-.icon-uniE603:before {
-	content: "\e603";
-}
-.icon-uniE604:before {
-	content: "\e604";
 }

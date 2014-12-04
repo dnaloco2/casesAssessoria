@@ -9,6 +9,8 @@
 $cor_azul: #282165;
 $cor_verde: #00A556;
 $cor_branco_fosco: #E7E8E3;
+$cor_facebook: #2E4DA7;
+$cor_twitter: #3ACAFF;
 
 $cor_verde_01: #96BC33;
 $cor_verde_02: #2F7938;
@@ -38,7 +40,7 @@ $secondary-color: $cor_verde;
 
 // Typography Settings
 $header-font-family: 'Cabin', sans-serif;
-$body-font-family: 'Oxygen', sans-serif;
+$body-font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif; 
 
 // Top Bar
 $topbar-title-weight: bold;
@@ -156,10 +158,80 @@ opacity: 1; */
 
 
 /********************* 3 - Estrutura ******************************/
-.admin-content {
-	margin-left: 220px;
+
+#conteudo_single{
+	height:100vh;
 	background: white;
-	padding: 20px;
+}
+
+#faq-accordion dd a {
+	background: #A8A8A8;
+	padding: 10px 20px;
+	transition: all 0.5s;
+	&:hover {
+		border-left: 10px solid #585A4E;
+		background: #8D8D8D;
+	}
+}
+
+
+#produtos-page {
+	.titulo-parte-home {
+		padding: 0 !important; margin: 0 !important;
+
+	}
+
+	.subtitulo {
+		margin-left: 10px;
+	}
+
+	.titulo-modal {
+		color: #88ACA3 !important;
+	}
+} 
+
+.modal_padrao {
+	@include background-image(linear-gradient(to bottom, rgba(white, 0.5), rgba(#D4D4D4, 0.5)));
+}
+
+#servicos-accordion {
+	$cor_fonte: #8F8F8F;
+
+	color: $cor_fonte ;
+
+	dl.tabs {
+		dd {
+			a {
+				color: $cor_fonte !important;
+				text-shadow: none !important;
+				background: rgba(#E1E1E1, 0.7) !important;
+				@include border-corner-radius(top, left, 20px);
+ 				@include border-corner-radius(top, right, 20px);
+ 				// border: 1px solid #679285;
+				margin-bottom: -1px;
+				padding: 10px 30px;
+
+			}
+		}
+
+		dd.active {
+			a {
+				background: rgba(white, 0.7) !important;
+				border-bottom: 0px !important;
+			}
+		}
+	}
+
+	.tab_servico {
+		//background: rgba(#85aba0, 0.7) !important;
+		@include background-image(linear-gradient(to bottom, rgba(white, 0.7), rgba(#D4D4D4, 0.7)));
+		@include border-corner-radius(bottom, left, 20px);
+		@include border-corner-radius(bottom, right, 20px);
+		@include border-corner-radius(top, right, 20px);
+		// border-bottom: 1px solid #679285;
+		// border-left: 1px solid #679285;
+		// border-right: 1px solid #679285;
+	}
 }
 
 div.editable {
@@ -203,6 +275,22 @@ div.editable {
 	
 }
 
+.admin-content  {
+	margin-left: 0px !important;
+	background: #EFEFEF;
+	height:100vh;
+	margin-left: 230px !important;
+	@include background-image(radial-gradient(45px 45px, #FFFFFF 60px, #EFEFEF 200px));
+
+	height:100% ;
+
+}
+
+#admin-content {
+
+	height:100vh !important;
+}
+
 #linha_header_top {
 	background-color: $main-color;
 	top: 0;
@@ -229,41 +317,54 @@ div.editable {
 
 	background-color: $cor_fundo_branco;
 
+	#quem-somos-page {
+		/// background: url(/img/fundo-quem-somos.png);
+		background-color: #FEFEFE;
+		background-size: 100%;
+		width: 100%; height: 100%;
+
+		.logo_vertical_cases {
+		 	padding: 15px 20px;
+		}
+
+		.padding_trinta {
+
+			padding-top: 30px !important;
+
+		}
+
+		.padding_trinta *{
+
+			margin: 0px !important;
+			padding: 0 !important;
+		}
+		.padding_trinta article * { 
+			margin-top: 30px !important;
+		}
+	}
+
+	#servicos-page {
+		background: url(/img/fundo-novo-servicos.png);
+		background-size: 100%;
+		width: 100%; height: 100%;
+	}
+
+	#widgets-home-top {
+		background: url(/img/fundo-informativo.png);
+		background-size: 100%;
+		width: 100%; height: 100%;
+	}
+
 	.fundo-secao-default {
 		// @include background-image(linear-gradient(white, #cccccc, #aaaaaa));
 
 		background-size: 100%;
 		padding-bottom: 30px;
 
+
 		// @include background-image(linear-gradient( $cor_verde_01, adjust-lightness($cor_verde_01, +20)));
 
-		h1.titulo-parte-home {
-			width:100%;
-
-			text-align: center;
-
-			padding: 0; margin: 0;
-
-			font-size: 24px !important;
-
-			background: white;
-			border-bottom: 1px solid gray;
-			margin-bottom: 20px !important;
-			color: gray !important;
-				
-		}
 		
-		h1.titulo-parte-home-a {
-			color: rgb( 65, 65, 65 );
-
-			font-size: 50px;
-		}
-
-		h1.titulo-parte-home-b {
-			color: rgb( 80, 80, 80 );
-			
-			font-size: 50px;
-		}
 		// -webkit-box-shadow: inset 0px 0px 33px 16px rgba(0,0,0,0.75);
 		// 	-moz-box-shadow: inset 0px 0px 33px 16px rgba(0,0,0,0.75);
 		// 	box-shadow: inset 0px 0px 33px 16px rgba(0,0,0,0.75);
@@ -291,6 +392,11 @@ div.editable {
 		@include background-image(linear-gradient(to right, $cor_1, $cor_2, $cor_1));
 	}
 
+	#quem-somos-conteudo {
+		background: rgba(255, 255, 255, 0.85);
+		color: #8F8F8F;
+	}
+
 }
 
 /* Fundo do Banner */
@@ -312,10 +418,13 @@ div.editable {
 
 .fundo-pagina-secao {
 	background-color: white;
+	border: 2px solid #D6D5DB;
+	@include border-radius(15px);
+
 }
 
 .widget-top {
-	min-height: 478px;
+	min-height: 280px;
 }
 
 .widget-bottom {
@@ -323,11 +432,14 @@ div.editable {
 }
 
 .widget-top-precise {
-	height: 478px;
+	height: 280px;
 }
 
 .widget-box {
-	background: white;
+	background: rgba(white, 0.7);
+	border: 1px solid #8db5a8;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
 
 .padded-column {
@@ -338,6 +450,11 @@ div.editable {
 
 }
 
+.content-admin {
+	background: white;
+	padding: 20px;
+}
+
 .fundo-banner {
 	padding-bottom: 1px;
 }
@@ -346,7 +463,9 @@ div.editable {
 	height: 2px;
 	width: 100%;
 
-	@include background-image(linear-gradient(to right, #9B9B9B, #6B6B6B, #9B9B9B));
+	background: #B6B6B6;
+
+	//@include background-image(linear-gradient(to right, #F3F3F3, #C4C4C4, #F3F3F3));
 
   	// background-image: -svg(linear-gradient(120deg, $cor_verde_01, $cor_verde_02, $cor_verde_01));
 }
@@ -359,6 +478,7 @@ div.editable {
 	}
 }
 
+
 .bg-content {
 	background-color: white;
 }
@@ -368,15 +488,17 @@ div.editable {
 	margin: 0 !important;
 }
 
-.table_clean {
-  	margin-bottom: 0px !important;
 
-	border: none !important;
+tr.ng-scope, tr.ng-scope * {
+	background-color: transparent !important;
 }
 
-tr.ng-scope {
-	background: white !important;
+table.table_clean {
+	width: 100% !important;
+}
 
+table.table_clean * {
+	background-color: transparent !important;
 }
 
 .pagination.ng-table-pagination {
@@ -384,40 +506,165 @@ tr.ng-scope {
 	margin: 0 !important;
 }
 
+
 /********************* 4 - Rodapé *********************************/
 footer#rodape, .push {
 	clear: both;
+
+	
 }
 
 footer#rodape {
 	color: white;
-	background-color: #292B24;
+	background-color: #5b736b;
 	width: 100% !important;
-}
 
+	.logos_empresas img {
+		width: 80%;
+	}
+
+	.barra_copyright {
+		background: #323d38;
+		padding: 10px !important;
+	}
+}
 
 /********************* 5 - Estilo de Títulos *********************/
 
-.titulo-accordion {
+.barra_titulo_accordion {
 	color: white;
 	font-size: 20px;
-	text-shadow: 1px 2px 3px $cor_verde_01, 0 0 0 #000, 1px 2px 3px $cor_verde_01;
-	font-weight: bold;
+	padding: 0 !important;
+	border-left: 10px solid #5b736b;
 }
 
-.tabs {
+.tabs { 
 	dd.active {
 		font-weight: bold !important;
 	}
 }
 
 .widget-title {
-  background: $cor_verde_01;
-  padding: 5px 20px;
-  color: white;
+   	background: rgba(#8db5a8, 0.7);
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border: 1px solid #8db5a8;
+	text-align: center;
+	padding: 5px 20px;
+	color: white;
+}
+
+.fundo_titulo_accordion {
+	background: #f1f1f1;
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	padding: 10px;
+	font-size: 22px;
+	border-top: 1px solid #cfd5d3;
+	border-right: 1px solid #cfd5d3;
+	border-bottom: 1px solid #cfd5d3;
+
+	color: #5b736b;
+}
+
+.subtitulo_accordion {
+	background: transparent !important;
+	color: #5b736b !important;
+	padding: 0 !important;
+	margin:  15px 30px;
+	font-size: 20px !important;
+
+	dd {
+
+		padding-left: 40px !important;
+		margin-bottom: 20px !important;
+	}
+
+}
+
+h1.titulo-parte-home {
+
+	padding: 0; margin: 0;
+
+	font-weight: normal !important;
+		
+}
+
+h1.titulo-parte-home-dark-blue {
+	color: #385559 !important;
+		
+}
+
+h1.titulo-parte-home-white {
+
+	color: white !important;
+}
+
+h1.titulo-parte-home-light-green {
+	color: #88ACA3 !important;
+}
+
+h1.titulo-parte-home-light-grey {
+	color: #999999 !important;
+}
+
+.tabs_accordion {
+
+
+	dd {
+		padding: 0 15px !important;
+		border-left: 1px solid #ABB1AB;
+
+		&:first-child {
+			padding-left: 45px !important;
+			border: none;
+		}
+	}
+	a {
+		background: transparent !important;
+		color: #999999 !important;
+
+		margin: 0 30px 0 0 0 !important;
+		padding: 0 !important;
+
+	}
+}
+
+#produtosModal {
+	.tabs-content {
+
+		padding: 0 45px;
+		border-top: 1px solid #BDBFB5;
+		border-bottom: 1px solid #BDBFB5;
+		margin-top: 10px;
+		padding-top: 10px;
+		color: #BDBFB5;
+	}
+
+
+	#produtos-accordion dl dd dl  {
+		border-left: 1px solid #BDBFB5;
+		border-right: 1px solid #BDBFB5;
+	}
+}
+
+.accordion-navigation .content{
+
+	padding: 0 !important;
+	margin: 0 !important;
+
 }
 
 /********************* 6 - Estilo de Texto ************************/
+
+#widget_links_uteis td {
+  	padding: 5px;
+  	
+	.links_uteis {
+		font-size: 15px !important;
+	}
+}
 
 .tipo-telefone {
 	float: left;
@@ -429,6 +676,53 @@ footer#rodape {
 }
 
 /********************* 7 - Botões *********************************/
+
+.btn_social_novo {
+	$scala: 1.1;
+
+  	a {
+  		font-size: 1.1em;
+  		color: gray;
+  		transition: font 0.3s, color 0.3s;
+		&:hover {
+			font-size: 1.18em;
+			-ms-transform: scale($scala); /* IE 9 */
+		    -webkit-transform: scale($scala); /* Chrome, Safari, Opera */
+		    transform: scale($scala); /* Standard syntax */
+		}
+  	}
+	
+  	a.twitter_icon {
+		&:hover {
+			color: $cor_twitter;
+			
+		}
+	}
+
+  	a.facebook_icon {
+		&:hover {
+			color: $cor_facebook;
+		}
+	}
+}
+
+.btn_social_footer {
+
+	margin-right: 20px !important;
+	font-size: 1.7em !important;
+
+  	a {
+  		font-size: 1.5em !important;
+  		color: #3e4f49 !important;
+		transition: color 0.5s;
+
+		&:hover {
+			color: white !important;
+		}
+  	}
+	
+}
+
 
 .btn_social {
 	$tamanho_btn: 32px;
@@ -542,6 +836,15 @@ input.buscar-site {
 }
 
 /********************* 8 - Navegação ******************************/
+
+#barra_horizontal_admin {
+	background: white !important;
+	height: 41px;
+	width: 100% !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	box-shadow: 0px 1px 4px gray;
+}
 
 /* Base Menu Responsivo */
 .barra-menu {
@@ -707,13 +1010,15 @@ $cinza_li_hover: #a6a6a6;
 
 /* inicio admin menu */
 #admin-menu {
-	width: 220px;
-	background: $main-color;
+	width: 230px;
+	background: #5B736B;
 
 	height:100vh;
 
 	#menu_title {
-		background: $main-color !important;
+		background: #5B736B !important;
+		
+		border-top: 1px solid #526761;
 	}
 
 	ul{
@@ -722,12 +1027,12 @@ $cinza_li_hover: #a6a6a6;
 
 		li {
 
-			background-color: $secondary-color;
+			background-color: #77968b;
 			@include transition-property(all);
 			@include transition-duration(0.3s);
 
 			&:hover {
-				background-color: adjust-lightness($secondary-color, +8);
+				background-color: adjust-lightness(#77968b, +8);
 			}
 
 			li {
@@ -744,15 +1049,18 @@ $cinza_li_hover: #a6a6a6;
 	}
 
 	h3 {
-		font-size: 1.4em;
+		font-size: 1.2em;
 		color: white;
-		@include background-image(linear-gradient( $main-color, adjust-lightness($main-color, +10)));
+		// @include background-image(linear-gradient( $main-color, adjust-lightness($main-color, +10)));
+
+		background: #3e4f49;
 
 		@include transition-property(all);
 		@include transition-duration(0.3s);
 
 		&:hover {
-			@include background-image(linear-gradient( adjust-lightness($main-color, +20), adjust-lightness($main-color, +30)));
+			background: #5F7870;
+			// @include background-image(linear-gradient( adjust-lightness($main-color, +20), adjust-lightness($main-color, +30)));
 		}
 	}
 	
@@ -814,6 +1122,50 @@ $cinza_li_hover: #a6a6a6;
 }
 
 /********************* 10 - Extras/Miscelâneas ********************/
+.font_12 {
+	font-size: 12px !important;
+
+}
+
+.font_10 {
+	font-size: 10px !important;
+
+}
+
+.light_gray_f {
+	color: #B6B8AB;
+}
+
+.green_f {
+	color: #2F7938 !important;
+}
+
+hr.my_fancy_hr {
+	border: 0; 
+    height: 2px;
+    padding: 0 !important;
+    margin: 0 !important;
+    padding: 0;
+	
+}
+
+hr.hr_gradiente_dark_blue {
+	@include background-image(linear-gradient(to right, rgba(#385559, 1) , rgba(white, 0)));
+}
+
+hr.hr_gradiente_white {
+	@include background-image(linear-gradient(to right, rgba(white, 1) , rgba(white, 0)));
+}
+
+hr.hr_gradiente_light_green {
+	@include background-image(linear-gradient(to right, rgba(#88ACA3, 1) , rgba(white, 0)));
+}
+
+
+hr.hr_gradiente_light_grey {
+	@include background-image(linear-gradient(to right, rgba(#999999, 1) , rgba(white, 0)));
+}
+
 
 .no-margin-all {
 	margin: 0 !important;
@@ -832,7 +1184,14 @@ $cinza_li_hover: #a6a6a6;
 	margin-right: 0 !important;
 }
 
-.no-padding-all {
+.margin_10 {
+	margin: 10px !important;
+}
+
+.no-padding-all {.margin_10 {
+	margin: 10px !important;
+}
+
 	padding: 0 !important;
 }
 
@@ -870,6 +1229,10 @@ $cinza_li_hover: #a6a6a6;
 	padding: 10px !important;
 }
 
+.padding_top_dez {
+	padding-top: 10px !important;
+}
+
 .padding_quinze {
 	padding: 15px !important;
 }
@@ -878,8 +1241,32 @@ $cinza_li_hover: #a6a6a6;
 	padding: 20px !important;
 }
 
+.padding_trinta {
+	padding: 30px !important;
+}
+
 .texto_centralizado {
 	text-align: center;
+}
+
+.margem_bottom_10 {
+	margin-bottom: 10px !important;
+}
+
+.margem_top_10 {
+	margin-top: 10px !important;
+}
+
+.padding_dez_vinte {
+	padding: 10px 20px !important;
+}
+
+.margin_left_10 {
+	margin-left: 10px !important;
+}
+
+.padding_left_10 {
+	margin-left: 10px !important;
 }
 
 /********************* 11 - Media Queries  ************************/
@@ -933,4 +1320,116 @@ $cinza_li_hover: #a6a6a6;
 	.navigation li { float: none; }
 	.navigation li a { border-bottom: 1px solid #fff; }
 
+}
+
+/* TEMP  */
+#sitemap {
+	list-style-type: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+
+}
+#rodape ul {
+	list-style-type: none;
+}
+
+/* liScroll styles */
+
+.tickercontainer { /* the outer div with the black border */
+	border-top: 3px solid #8db5a8;
+	border-bottom: 6px solid #8db5a8;
+	background: #fff; 
+	width: 100%; 
+	height: 39px; 
+	margin: 0; 
+	padding: 0;
+	overflow: hidden; 
+}
+.tickercontainer .mask { /* that serves as a mask. so you get a sort of padding both left and right */
+	position: relative;
+	left: 10px;
+	top: 2px;
+	width: 100%;
+	overflow: hidden;
+}
+ul.newsticker { /* that's your list */
+	position: relative;
+	left: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+}
+ul.newsticker li {
+	float: left; /* important: display inline gives incorrect results when you check for elem's width */
+	margin: 0;
+	padding: 0;
+	background: #fff;
+}
+
+ul.newsticker a {
+	white-space: nowrap;
+	padding: 0;
+	color: #5b736b;
+	font-size: 16px;
+	
+	margin: 0 50px 0 0;
+
+	transition: color 0.3s;
+
+	&:hover {
+		color: #323d38;
+	}
+
+
+} 
+
+ul.newsticker span {
+	margin: 0 10px 0 0;
+} 
+
+
+/* --- Accordion --- */
+
+
+#rodape {
+	h3 {
+		font-size: 1.2em;
+   		color: white;
+	}
+	a {
+		color: white;
+	}
+
+	.accordion_list {margin:0}
+
+	.accordion_list li {list-style-type:none}
+
+	.accordion_list li.last-child {margin-left:19px; list-style-type:disc}
+
+
+	.accordion_list .outer {border:1px solid #dadada; border-width:0 1px 1px; background: #fff}
+
+	.accordion_list .inner {margin-bottom:0; padding:.5em 20px 1em; position:relative; overflow:hidden}
+
+	.accordion_list .inner .inner {padding-bottom:0}
+
+	.accordion_list .h {padding-top:.3em} /* vertical padding instead of vertical margin (ie8) */
+
+	.accordion_list p {margin:.5em 1px 1em}
+
+	/*  
+	  Add styles for all links in the 'accordion':
+	.accordion a {...}
+	*/    
+
+	a.trigger {display:block; padding-left:20px; background-image: url(/img/mais.png); background-repeat: no-repeat; background-position: 1px 50%}
+
+	a.trigger.open {background-image: url(/img/menos.png)}
+
+	.last-child a.trigger{padding-left:1px; background-image:none; font-weight:normal}
+
+
+
+	a.active{font-weight:700; color:#f72; text-decoration:none}
 }

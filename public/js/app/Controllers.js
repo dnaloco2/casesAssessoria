@@ -294,7 +294,6 @@ CmsApp.controller('ColaboradoresCtrl', ['$scope', 'Corretor', '$location', funct
 				// 200
 				function () {
 
-					console.log(data);
 
 					if (data.data.success) {
 
@@ -544,7 +543,7 @@ CmsApp.controller('LinksCtrl', ['$scope', 'ngTableParams', 'Link', function($sco
 
 			$scope.tableParams = new ngTableParams({
 		        page: 1,            // show first page
-		        count: 10          	// count per page
+		        count: 5         	// count per page
 		    }, {
 		        total: data.length, // length of data
 		        getData: function($defer, params) {
@@ -588,7 +587,7 @@ CmsApp.controller('FaqCtrl', ['$scope', 'Faq', '$sce', function($scope, Faq, $sc
 
 CmsApp.controller('CorretoresCtrl', ['$scope', 'Corretor', function($scope, Corretor) {
 	$scope.currentPage = 1;
-  	$scope.pageSize = 10;
+  	$scope.pageSize = 5;
 	$scope.corretores = [];
 
 	var loadCorretores = ( function() {
@@ -672,8 +671,6 @@ CmsApp.controller('NotificacoesCtrl', ['$scope', 'Notificacao', 'NotificacaoArqu
 
 			$scope.notificacoesArquivos = data;
 
-			console.log(data);
-
 			$scope.loadingNotificacoesArquivos = false;
 
 		});
@@ -696,8 +693,6 @@ CmsApp.controller('CircularesCtrl', ['$scope', 'Circular', 'CircularArquivo', fu
 
 			$scope.circulares = data;
 
-			console.log(data);
-
 			$scope.loadingCirculares = false;
 
 		});
@@ -717,8 +712,6 @@ CmsApp.controller('CircularesCtrl', ['$scope', 'Circular', 'CircularArquivo', fu
 			var data = $.map(circularesArquivos.data, function(el) { return el; });
 
 			$scope.circularesArquivos = data;
-
-			console.log(data);
 
 			$scope.loadingCircularesArquivos = false;
 
@@ -753,4 +746,44 @@ CmsApp.controller('GlossarioCtrl', ['$scope', 'Glossario', '$sce', function($sco
 		});
 		
 	})();
+}]);
+
+CmsApp.controller('FormContatoCtrl', ['$scope', '$http', function($scope, $http) {
+	$scope.result = 'hidden'
+    $scope.resultMessage;
+    $scope.formData; //formData is an object holding the name, email, subject, and message
+    $scope.submitButtonDisabled = false;
+    $scope.submitted = false; //used so that form errors are shown only after the form has been submitted
+    $scope.submit = function(contactform) {
+        $scope.submitted = true;
+        $scope.submitButtonDisabled = true;
+        if (contactform.$valid) {
+
+            $http({
+                method  : 'POST',
+                url     : '/api/formcontato',
+                data    : $.param($scope.formData),  //param method from jQuery
+                headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
+            }).success(function(data){
+
+                if (data.success) { //success comes from the return json object
+
+                    $scope.submitButtonDisabled = true;
+                    $scope.resultMessage = data.message;
+                    $scope.result='bg-success';
+                } else {
+
+                    $scope.submitButtonDisabled = false;
+                    $scope.resultMessage = data.message;
+                    $scope.result='bg-danger';
+                }
+            }).error(function(data) {
+            	console.log('ERROR',data);
+            });
+
+            $scope.submitButtonDisabled = false;
+            $scope.resultMessage = 'Failed <img src="http://www.chaosm.net/blog/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley">  Please fill out all the fields.';
+            $scope.result='bg-danger';
+        }
+    }
 }]);

@@ -10,8 +10,8 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.3.*",
-        "doctrine/doctrine-orm-module": "dev-master",
+        "doctrine/doctrine-orm-module": "~0.7",
         "hounddog/doctrine-data-fixture-module": "0.0.*",
-        "wesleywillians/son-base": "1.0.*"
+        "phpmailer/phpmailer": "5.2.9"
     }
 }

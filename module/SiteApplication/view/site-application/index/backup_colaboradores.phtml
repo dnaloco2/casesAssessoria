@@ -1,0 +1,30 @@
+	<ul class="ng-cloak small-block-grid-2 medium-block-grid-2" pagination-id="colabor" dir-paginate="corretor in corretores | filter:q | itemsPerPage: pageSize: 'colabor'" current-page="currentPage">
+
+		<li>
+
+			{{ corretor.foto }}
+			<strong>Nome:</strong> <span>{{ corretor.nome }}</span><br>
+			
+			<span ng-show="corretor.area.length">
+				<strong>Area:</strong> <span>{{ corretor.area }}</span><br>
+			</span>
+			
+			<span ng-show="corretor.cargo.length">
+				<strong>Cargo:</strong> <span>{{ corretor.cargo }}</span><br>
+			</span>
+			
+			<span ng-show="corretor.filial.length">
+				<strong>Filial:</strong> <span>{{ corretor.filial }}</span><br>
+			</span>
+			
+			<strong>E-mail:</strong> <span>{{ corretor.email }}</span><br>
+			
+			<span ng-repeat="tel in corretor.telefones">
+				{{ tel.num }} | {{ tel.tipo }}
+			</span>
+
+		</li>
+
+	</ul>
+
+	<dir-pagination-controls pagination-id="colabor" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="/templates/dirPagination.tpl.html" class="ng-cloak"></dir-pagination-controls>

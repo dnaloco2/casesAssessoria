@@ -16,6 +16,12 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+    	$response_xml_data = file_get_contents('http://www.susep.gov.br/rss/RSS');
+
+        $xml = simplexml_load_string($response_xml_data);
+        $json = json_encode($xml);
+        $array = json_decode($json,TRUE);
+
+        return new ViewModel(array('news_01' => $array));
     }
 }

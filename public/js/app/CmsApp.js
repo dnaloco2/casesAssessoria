@@ -2,7 +2,7 @@ var CmsApp = angular.module('CmsApp', ['ngResource', 'ngRoute', 'ngTable', 'angu
 
 CmsApp.config(['$locationProvider', 'paginationTemplateProvider', function ($locationProvider, paginationTemplateProvider) {
 	$locationProvider.html5Mode({
-		enabled: true,
+		enabled: false,
 		requireBase: false
 	});
 

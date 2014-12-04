@@ -11,6 +11,7 @@ use CmsMediaForce\Entity\DadosCadConteudo;
 
 use CmsBase\Helper\SlugHelper;
 
+/*
 class LoadPost extends AbstractFixture implements OrderedFixtureInterface {
 
     public function load(ObjectManager $manager) {
@@ -113,3 +114,5 @@ class LoadPost extends AbstractFixture implements OrderedFixtureInterface {
         return 3;
     }
 }
+
+*/

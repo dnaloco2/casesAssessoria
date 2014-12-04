@@ -18,6 +18,16 @@ else
 }
 
 die;*/
+// $datetime1 = new DateTime('2014-12-02'); // data hoje
+// $datetime2 = new DateTime('2014-12-01'); // data post
+// $interval = $datetime1->diff($datetime2);
+// $diffDays = $interval->format('%R%a');
+
+// if ($diffDays < 0) {
+// 	echo "Post expirou há " . $diffDays;
+// }
+
+// die;
 
 date_default_timezone_set('America/Sao_Paulo');
 

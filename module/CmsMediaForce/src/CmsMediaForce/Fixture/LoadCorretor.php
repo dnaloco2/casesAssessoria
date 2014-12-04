@@ -9,6 +9,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use CmsMediaForce\Entity\Corretor;
 use CmsMediaForce\Entity\Telefone;
 
+/*
 class LoadCorretor extends AbstractFixture implements OrderedFixtureInterface {
 
     public function load(ObjectManager $manager) {
@@ -71,3 +72,5 @@ class LoadCorretor extends AbstractFixture implements OrderedFixtureInterface {
         return 1;
     }
 }
+
+*/
