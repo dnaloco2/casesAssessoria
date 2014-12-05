@@ -275,22 +275,6 @@ div.editable {
 	
 }
 
-.admin-content  {
-	margin-left: 0px !important;
-	background: #EFEFEF;
-	height:100vh;
-	margin-left: 230px !important;
-	@include background-image(radial-gradient(45px 45px, #FFFFFF 60px, #EFEFEF 200px));
-
-	height:100% ;
-
-}
-
-#admin-content {
-
-	height:100vh !important;
-}
-
 #linha_header_top {
 	background-color: $main-color;
 	top: 0;
@@ -446,13 +430,15 @@ div.editable {
 	padding: 10px
 }
 
-.column-content {
-
+#corretorCadastrado {
+	display: none;
 }
 
 .content-admin {
-	background: white;
-	padding: 20px;
+ 	padding: 20px 30px;
+	margin-left: 230px;
+	@include background-image(radial-gradient(45px 45px, #FFFFFF 60px, #EFEFEF 200px));
+	height:100%;
 }
 
 .fundo-banner {
@@ -676,6 +662,11 @@ h1.titulo-parte-home-light-grey {
 }
 
 /********************* 7 - Botões *********************************/
+.aba_conteudo dd a{
+	background: #AAAC9D;
+	padding: 10px 50px;
+	transition: all 0.5s;
+}
 
 .btn_social_novo {
 	$scala: 1.1;
@@ -1122,6 +1113,10 @@ $cinza_li_hover: #a6a6a6;
 }
 
 /********************* 10 - Extras/Miscelâneas ********************/
+.height_vh {
+	height: 100vh !important;
+}
+
 .font_12 {
 	font-size: 12px !important;
 
@@ -1188,10 +1183,7 @@ hr.hr_gradiente_light_grey {
 	margin: 10px !important;
 }
 
-.no-padding-all {.margin_10 {
-	margin: 10px !important;
-}
-
+.no-padding-all {
 	padding: 0 !important;
 }
 

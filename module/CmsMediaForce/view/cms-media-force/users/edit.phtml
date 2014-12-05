@@ -1,12 +1,14 @@
-<h3>Editando usuário</h3>
-<br />
-<?php
-
-$form = $this->form;
-$form->setAttribute('action',$this->url('cms-admin-access/default',array('controller'=>'users','action'=>'edit')));
-$form->prepare();
-
-echo $this->form()->openTag($form);
-echo $this->formCollection($form);
-echo $this->form()->closeTag();
-?>
+<div class="content-admin">
+	<h3>Editando usuário</h3>
+	<br />
+	<?php
+	
+	$form = $this->form;
+	$form->setAttribute('action',$this->url('cms-admin-access/default',array('controller'=>'users','action'=>'edit')));
+	$form->prepare();
+	
+	echo $this->form()->openTag($form);
+	echo $this->formCollection($form);
+	echo $this->form()->closeTag();
+	?>
+</div>

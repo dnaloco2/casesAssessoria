@@ -1,12 +1,14 @@
-<h3>Novo Usuário</h3>
-<br />
-<?php
-
-$form = $this->form;
-$form->setAttribute('action',$this->url('cms-admin-content/default',array('controller'=>'links','action'=>'new')));
-$form->prepare();
-
-echo $this->form()->openTag($form);
-echo $this->formCollection($form);
-echo $this->form()->closeTag();
-?>
+<div class="content-admin">
+	<h3>Novo Usuário</h3>
+	<br />
+	<?php
+	
+	$form = $this->form;
+	$form->setAttribute('action',$this->url('cms-admin-content/default',array('controller'=>'links','action'=>'new')));
+	$form->prepare();
+	
+	echo $this->form()->openTag($form);
+	echo $this->formCollection($form);
+	echo $this->form()->closeTag();
+	?>
+</div>
