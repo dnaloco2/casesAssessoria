@@ -25494,6 +25494,10 @@ hr.hr_gradiente_light_grey {
   margin-top: 10px !important;
 }
 
+.margem_top_15 {
+  margin-top: 15px !important;
+}
+
 /* line 1252, ../scss/app.scss */
 .padding_dez_vinte {
   padding: 10px 20px !important;
