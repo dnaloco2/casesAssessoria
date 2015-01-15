@@ -125,7 +125,6 @@ if (strpos($route, 'conteudo') !== false) {
                 <button data-dropdown="drop_atendimento" aria-controls="drop_atendimento" aria-expanded="false" class="dropdown btn-atendimento btn-top-header"><span class="icon-phone"></span>&nbsp;&nbsp;&nbsp;Atendimento</button>
                 <ul id="drop_atendimento" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
                   <li><a href="#" data-reveal-id="formularioModal"><span class="icon-feather"></span>&nbsp;&nbsp;&nbsp;Fale Conosco</a></li>
-                  <li><a href="#"><span class="icon-bubbles2"></span>&nbsp;&nbsp;&nbsp;Chat On-Line</a></li>
                   <li><a href="#" data-reveal-id="nossoCorretores"><span class="icon-phone2"></span>&nbsp;&nbsp;&nbsp;Telefones</a></li>
                 </ul>
               </div>
@@ -262,18 +261,13 @@ if (strpos($route, 'conteudo') !== false) {
                 </ul>
               </li>
 
-              <li ng-class="{'active': isUser}">
-                <h3>&nbsp;&nbsp;<span class="icon-earth"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Site</h3>
-                <ul>
-                  <li>
-                    <a href="/" target="_self"><span class="icon-globe"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ir Para o Site</a>
-                  </li>
-                  <li>
-                    <a href="/auth/logout" target="_self"><span class="icon-exit"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sair</a>
-                  </li>
-                </ul>
+              <li>
+                <a href="/" target="_self"><h3>&nbsp;&nbsp;<span class="icon-earth"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ir Para o Site</h3></a>
               </li>
 
+              <li>
+                <a href="/auth/logout" target="_self"><h3>&nbsp;&nbsp;<span class="icon-exit"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deslogar</h3></a>
+              </li>
             </ul>
           </nav>
         </aside>

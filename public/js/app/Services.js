@@ -22,6 +22,30 @@ CmsApp.factory('Formulario', ['$resource', function ($resource) {
     })
 }]);
 
+CmsApp.factory('Posts', ['$resource', function ($resource) {
+    return $resource('/api/arquivo/formulários/:id', { id: '@_id'}, {
+        update: {
+            method: 'PUT',
+            isArray: false,
+
+        },
+        get: {
+            method:'GET',
+        },
+        delete: {
+            method: 'DELETE',
+        },
+        save: {
+            method: 'POST',
+            isArray: false 
+        },
+        query: {
+            method: 'GET', 
+            isArray: false 
+        }
+    })
+}]);
+
 CmsApp.factory('Notificacao', ['$resource', function ($resource) {
     return $resource('/api/conteudo/notificações/:id', { id: '@_id'}, {
         update: {

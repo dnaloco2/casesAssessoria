@@ -10,16 +10,18 @@ use CmsMediaForce\Entity\ArquivoTexto,
     CmsMediaForce\Entity\DadosCadConteudo;
 
 use CmsBase\Helper\SlugHelper;
-/*
+
 class LoadArquivoTexto extends AbstractFixture implements OrderedFixtureInterface {
+
+
 
     public function load(ObjectManager $manager) {
 
-        $dirFormularios = 'public/arquivos/formularios/';
+        $dirArquivos = 'public/files/formularios/';
 
-        $endereco = 'arquivos/formularios/';
+        $endereco = 'files/formularios/';
 
-        $scanDir = scandir($dirFormularios);
+        $scanDir = scandir($dirArquivos);
 
         $notToRead = array(
           '.',
@@ -59,7 +61,7 @@ class LoadArquivoTexto extends AbstractFixture implements OrderedFixtureInterfac
             }
         }
 
-        $dirFormularios = 'public/arquivos/circulares/';
+       /* $dirFormularios = 'public/arquivos/circulares/';
 
         $endereco = 'arquivos/circulares/';
 
@@ -95,7 +97,7 @@ class LoadArquivoTexto extends AbstractFixture implements OrderedFixtureInterfac
                 $manager->persist($arquivo);
 
             }
-        }
+        }*/
 
         $manager->flush();     
     }
@@ -104,5 +106,3 @@ class LoadArquivoTexto extends AbstractFixture implements OrderedFixtureInterfac
         return 3;
     }
 }
-
-*/

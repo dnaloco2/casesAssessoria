@@ -28,8 +28,23 @@ class User extends AbstractService
         $corretor = $this->em->getReference('CmsMediaForce\Entity\Role',2);
 
         $data['role'] = $corretor;
+        $data['active'] = true;
         $entity = parent::insert($data);
+
+        $repo = $this->em->getRepository("CmsMediaForce\Entity\User");
         
+        $user = $repo->findOneByActivationKey($entity->getActivationKey());
+
+        $user->setActive(true);
+
+        (new Hydrator\ClassMethods())->hydrate($data, $user);
+
+        $this->em->persist($user);
+        $this->em->flush();
+
+        return $entity;
+
+/*        
         $dataEmail = array('nome'=>$data['nome'],'activationKey'=>$entity->getActivationKey());
         
         if($entity)
@@ -42,7 +57,7 @@ class User extends AbstractService
                     ->send();
             
             return $entity;
-        }
+        }*/
     }
     
     public function activate($key)

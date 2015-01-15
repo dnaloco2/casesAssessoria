@@ -23,10 +23,12 @@ class Post  extends Form
         $this->add($nome);
 
         $checkbox = new \Zend\Form\Element\Checkbox('expirar');
-        $checkbox->setLabel('Não Expirar Post: ')
+        $checkbox->setAttribute('id', 'check-expiraasdasdasasds')
+                    ->setLabel('Não Expirar Post: ')
                     ->setUseHiddenElement(true)
                     ->setCheckedValue("nao")
                     ->setUncheckedValue("sim");
+
         $this->add($checkbox);
     
         $expirar = new \Zend\Form\Element\Date('expiresAt');

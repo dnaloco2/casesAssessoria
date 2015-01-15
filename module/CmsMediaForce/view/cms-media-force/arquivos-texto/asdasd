@@ -1,0 +1,66 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0\fmodern\fprq1\fcharset0;}}{\colortbl;\red0\green0\blue255;\red187\green102\blue34;\red25\green23\blue124;\red64\green128\blue128;\red0\green128\blue0;\red102\green102\blue102;\red0\green68\blue221;\red0\green160\blue0;\red255\green0\blue0;\red186\green33\blue33;\red153\green153\blue153;\red170\green34\blue255;\red128\green0\blue128;\red136\green0\blue0;\red160\green160\blue0;\red0\green0\blue128;\red160\green0\blue0;\red187\green102\blue136;\red176\green0\blue64;\red187\green187\blue187;\red125\green144\blue41;\red210\green65\blue58;\red136\green136\blue136;\red188\green122\blue0;}\f0CmsApp.controller({\cf10 'ArquivosCtrl'}, [{\cf10 '$scope'},  {\cf5\b function} ( $scope ) \{\par
+	\par
+	$scope.checked_expirar {\cf6 =} {\cf5\b true};\par
+\par
+	$scope.data_expirar {\cf6 =} {\cf10 ''};\par
+\par
+	$scope.formIsInvalid {\cf6 =} {\cf5\b true};\par
+\par
+	{\cf5\b var} checked {\cf6 =} {\cf5\b false}\par
+\par
+	$scope.$watch({\cf10 'checked_expirar'}, {\cf5\b function} (scope) \{\par
+\par
+		{\cf5\b if} ( scope ) \{\par
+\par
+			$scope.post.expiresAt.$setValidity({\cf10 'required'}, {\cf5\b true});\par
+\par
+		\} {\cf5\b else} \{\par
+			\par
+			{\cf5\b if} ( $scope.expiresAt {\cf6 ==} {\cf10 'undefined'} {\cf6 ||} $scope.expiresAt {\cf6 ==} {\cf5\b null}) \{\par
+\par
+				$scope.post.expiresAt.$setValidity({\cf10 'required'}, {\cf5\b false});\par
+			\} {\cf5\b else} \{\par
+				$scope.data_expirar {\cf6 =} $scope.post.expiresAt;\par
+				$scope.post.expiresAt.$setValidity({\cf10 'required'}, {\cf5\b true});\par
+			\}\par
+		\}\par
+\par
+	\});\par
+\par
+	$scope.$watch({\cf10 'post.$invalid'}, {\cf5\b function} (scope) \{\par
+		$scope.formIsInvalid {\cf6 =} scope;\par
+	\})\par
+\par
+	$scope.$watch({\cf10 'expiresAt'}, {\cf5\b function} (scope) \{\par
+\par
+		{\cf5\b if} ( scope {\cf6 ==} {\cf10 'undefined'} {\cf6 ||} scope {\cf6 ==} {\cf5\b null}) \{\par
+\par
+			{\cf5\b if} ( $scope.checked_expirar ) \{\par
+				{\cf5\b if} (checked) \{\par
+					$scope.post.expiresAt.$setValidity({\cf10 'required'}, {\cf5\b false});\par
+				\}\par
+				checked {\cf6 =} {\cf5\b true};\par
+			\} {\cf5\b else} \{\par
+				$scope.data_expirar {\cf6 =} scope;\par
+				$scope.post.expiresAt.$setValidity({\cf10 'required'}, {\cf5\b true});\par
+			\}\par
+			\par
+		\} {\cf5\b else} \{\par
+			$scope.data_expirar {\cf6 =} scope;\par
+			$scope.post.expiresAt.$setValidity({\cf10 'required'}, {\cf5\b true});\par
+		\}\par
+\par
+	\});\par
+\par
+{\cf4\i /*	$scope.$watch('upload', function (scope) \{\par
+		console.log(scope);\par
+		if ( scope == 'undefined' || scope == null) \{\par
+			$scope.post.arquivo.$setValidity('required', false);\par
+		\} else \{\par
+			$scope.post.arquivo.$setValidity('required', true);\par
+		\}\par
+\par
+	\});*/}\par
+\par
+\}]);\par
+}

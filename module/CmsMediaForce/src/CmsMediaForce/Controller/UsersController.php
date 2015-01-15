@@ -15,7 +15,7 @@ class UsersController extends CrudController
         $this->form = "CmsMediaForce\Form\User";
         $this->service = "CmsMediaForce\Service\User";
         $this->controller = "users";
-        $this->route = "cms-admin/default";
+        $this->route = "cms-admin-content/default";
     }
 
      public function editAction()

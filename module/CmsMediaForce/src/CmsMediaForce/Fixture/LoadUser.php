@@ -20,7 +20,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface {
         $user->setNome("adminCases")
                 ->setEmail("adminCases@teste.com")
                 ->setPassword("Cases@2014")
-                ->setRole($visitante);
+                ->setRole($corretor);
 
         $manager->persist($user);       
         

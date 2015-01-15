@@ -1,0 +1,62 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0\fmodern\fprq1\fcharset0;}}{\colortbl;\red0\green0\blue255;\red187\green102\blue34;\red25\green23\blue124;\red64\green128\blue128;\red0\green128\blue0;\red102\green102\blue102;\red0\green68\blue221;\red0\green160\blue0;\red255\green0\blue0;\red186\green33\blue33;\red153\green153\blue153;\red170\green34\blue255;\red128\green0\blue128;\red136\green0\blue0;\red160\green160\blue0;\red0\green0\blue128;\red160\green0\blue0;\red187\green102\blue136;\red176\green0\blue64;\red187\green187\blue187;\red125\green144\blue41;\red210\green65\blue58;\red136\green136\blue136;\red188\green122\blue0;}\f0{\cf5\b <div} {\cf21 class=}{\cf10 "content-admin"}{\cf5\b >}\par
+\par
+    {\cf5\b <h3}{\cf5\b >}Arquivos de Texto{\cf5\b </h3>}\par
+\par
+    {\cf5\b <br} {\cf5\b />}\par
+\par
+    {\cf5\b <p}{\cf5\b >}\par
+        {\cf5\b <a} {\cf21 href=}{\cf10 "}{\cf24 <?php} {\cf5\b echo} {\cf3 $this}{\cf6 ->}{\cf21 url}({\cf10 'cms-admin-content/default'},{\cf5\b array}({\cf10 'controller'}{\cf6 =>}{\cf10 'arquivostexto'},{\cf10 'action'}{\cf6 =>}{\cf10 'new'})); {\cf24 ?>}{\cf10 "} {\cf21 target=}{\cf10 "_self"}{\cf5\b >}Novo Arquivo{\cf5\b </a>}\par
+    {\cf5\b </p>}\par
+\par
+    {\cf5\b <table} {\cf21 class=}{\cf10 "table"}{\cf5\b >}\par
+        {\cf5\b <tr}{\cf5\b >}\par
+            {\cf5\b <th}{\cf5\b >}ID{\cf5\b </th>}\par
+            {\cf5\b <th}{\cf5\b >}Categoria{\cf5\b </th>}\par
+            {\cf5\b <th}{\cf5\b >}T\ud{\u237\'ed}tulo{\cf5\b </th>}\par
+            {\cf5\b <th}{\cf5\b >}Criado Em{\cf5\b </th>}\par
+            {\cf5\b <th}{\cf5\b >}Atualizado Em{\cf5\b </th>}\par
+            {\cf5\b <th}{\cf5\b >}Criado Por{\cf5\b </th>}\par
+            {\cf5\b <th}{\cf5\b >}Expira Em{\cf5\b </th>}\par
+            {\cf5\b <th}{\cf5\b >}Arquivo{\cf5\b </th>}\par
+            {\cf5\b <td}{\cf5\b >}A\ud{\u231\'e7}\ud{\u227\'e3}o{\cf5\b </td>}\par
+        {\cf5\b </tr>}\par
+\par
+        {\cf24 <?php} {\cf5\b foreach}({\cf3 $this}{\cf6 ->}{\cf21 data} {\cf5\b as} {\cf3 $entity}){\cf6 :} {\cf24 ?>}\par
+\par
+        {\cf24 <?php} {\cf3 $post} {\cf6 =} {\cf3 $entity}{\cf6 ->}{\cf21 toArray}(); {\cf24 ?>}\par
+\par
+        {\cf5\b <tr}{\cf5\b >}\par
+        \par
+            {\cf5\b <td}{\cf5\b >}{\cf24 <?php} {\cf5\b echo} {\cf3 $post}[{\cf10 'id'}]; {\cf24 ?>}{\cf5\b }{\cf5\b </td>}\par
+            {\cf5\b <td}{\cf5\b >}{\cf24 <?php} {\cf5\b echo} {\cf3 $post}[{\cf10 'categoria'}]; {\cf24 ?>}{\cf5\b }{\cf5\b </td>}\par
+            {\cf5\b <td}{\cf5\b >}{\cf24 <?php} {\cf5\b echo} {\cf3 $post}[{\cf10 'titulo'}]; {\cf24 ?>}{\cf5\b }{\cf5\b </td>}\par
+            {\cf5\b <td}{\cf5\b >}{\cf24 <?php} {\cf5\b echo} {\cf3 $post}[{\cf10 'criado_em'}]{\cf6 ->}{\cf21 format}({\cf10 'd/m/Y H:i:s'}); {\cf24 ?>}{\cf5\b }{\cf5\b </td>}\par
+            {\cf5\b <td}{\cf5\b >}{\cf24 <?php} {\cf5\b echo} {\cf3 $post}[{\cf10 'atualizado_em'}]{\cf6 ->}{\cf21 format}({\cf10 'd/m/Y H:i:s'}); {\cf24 ?>}{\cf5\b }{\cf5\b </td>}\par
+            {\cf5\b <td}{\cf5\b >}{\cf24 <?php} {\cf5\b echo} {\cf3 $post}[{\cf10 'criado_por'}]; {\cf24 ?>}{\cf5\b }{\cf5\b </td>}\par
+            {\cf5\b <td}{\cf5\b >}\par
+                {\cf24 <?php} \par
+                {\cf5\b if} ({\cf3 $post}[{\cf10 'expirar'}]){\cf6 :}\par
+                    {\cf5\b echo} {\cf3 $post}[{\cf10 'expiresAt'}]{\cf6 ->}{\cf21 format}({\cf10 'd/m/Y H:i:s'});\par
+                {\cf5\b else}{\cf6 :}\par
+                    {\cf5\b echo} {\cf10 'N\ud{\u227\'e3}o Expira'};\par
+                {\cf5\b endif};\par
+                 {\cf24 ?>}\par
+                \par
+            {\cf5\b </td>}\par
+            {\cf5\b <td}{\cf5\b >}{\cf5\b <a} {\cf21 href=}{\cf10 "/}{\cf24 <?php} {\cf5\b echo} {\cf3 $post}[{\cf10 'endereco'}]; {\cf24 ?>}{\cf10 "}{\cf5\b >}{\cf24 <?php} {\cf5\b echo} {\cf5 basename}({\cf3 $post}[{\cf10 'endereco'}]); {\cf24 ?>}{\cf5\b }{\cf5\b </a>}{\cf5\b </td>}\par
+            {\cf5\b <td}{\cf5\b >}\par
+                {\cf5\b <a} {\cf21 href=}{\cf10 "}{\cf24 <?php} {\cf5\b echo} {\cf3 $this}{\cf6 ->}{\cf21 url}({\cf10 'cms-admin-content/default'},\par
+                        {\cf5\b array}({\cf10 'controller'}{\cf6 =>}{\cf10 'arquivostexto'},{\cf10 'action'}{\cf6 =>}{\cf10 'edit'},{\cf10 'id'}{\cf6 =>} {\cf3 $post}[{\cf10 'id'}] ));{\cf24 ?>}{\cf10 "} {\cf21 target=}{\cf10 "_self"}{\cf5\b >}Editar{\cf5\b </a>}\par
+                \par
+                {\cf5\b <a} {\cf21 href=}{\cf10 "}{\cf24 <?php} {\cf5\b echo} {\cf3 $this}{\cf6 ->}{\cf21 url}({\cf10 'cms-admin-content/default'},\par
+                        {\cf5\b array}({\cf10 'controller'}{\cf6 =>}{\cf10 'arquivostexto'},{\cf10 'action'}{\cf6 =>}{\cf10 'delete'},{\cf10 'id'}{\cf6 =>} {\cf3 $post}[{\cf10 'id'}] ));{\cf24 ?>}{\cf10 "} {\cf21 target=}{\cf10 "_self"}{\cf5\b >}Delete{\cf5\b </a>}\par
+                \par
+            {\cf5\b </td>}\par
+        {\cf5\b </tr>}\par
+        {\cf24 <?php} {\cf5\b endforeach}; {\cf24 ?>}\par
+    {\cf5\b </table>}\par
+\par
+    {\cf24 <?php} {\cf5\b echo} {\cf3 $this}{\cf6 ->}{\cf21 paginationControl}({\cf3 $this}{\cf6 ->}{\cf21 data},{\cf10 'Sliding'},{\cf10 'partials/paginator'}); {\cf24 ?>}\par
+\par
+{\cf5\b </div>}\par
+}
