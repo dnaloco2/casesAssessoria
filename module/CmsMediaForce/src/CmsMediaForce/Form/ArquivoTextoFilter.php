@@ -11,7 +11,7 @@ class ArquivoTextoFilter  extends InputFilter
     {
         
         $this->add(array(
-            'name'=>'descricao',
+            'name'=>'titulo',
             'required'=>true,
             'filters' => array(
                 array('name'=>'StripTags'),

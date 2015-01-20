@@ -119,7 +119,7 @@
 			<div class="column-content widget-top widget-box padding_vinte">
 
 				<div ng-show="loadingLinks" class="carregando_informacao texto_centralizado">
-					<img src="/img/carregando.gif" alt="">
+					<img src="/img/uncompressed/carregando.gif" alt="">
 				</div>
 
 				<table ng-table="tableParams" class="table_clean ng-cloak">
@@ -153,28 +153,7 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 		<aside class="large-4 columns" id="indicadores_economicos">
 			<div class="widget-title">Ind. Econômicos</div>
 			<div class="column-content widget-top-precise widget-box padding_dez texto_centralizado">
-				<?php 
-					$url = 'http://www.bcb.gov.br/pt-br/paginas/default.aspx';
-		            $ch = curl_init();
-		            curl_setopt($ch, CURLOPT_URL, $url);
-		            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		            $response = curl_exec($ch);
-		            curl_close($ch);
-		 
-		            preg_match_all('/<div class="tabela">(.+)<\/div>/s', $response, $conteudo);
-		 
-		            $n = explode('<div class="tabela">', $conteudo[0][0]);
-		            //print_r($n); 
-		 
-		            preg_match_all('/<table border="0" cellpadding="0" cellspacing="0">(.+)<\/table>/s', $n[4], $conteudo);
-		            $newhtml = preg_replace( "/\s+/"," ", $conteudo[0][0]);
-		            $output = str_replace('<a href="/?TXCOTACAO"> mais moedas</a>', '<a href="http://www.bcb.gov.br/?TXCOTACAO" rel="external"></a>', $newhtml);
-		            $output = str_replace('bgcolor="#f8f5f6"', '', $output);
-		 
-		            echo '<div><div><div><div><div id="tabela-indicadores">', $output;  
-				?>
-<!-- 
-				<iframe  scrolling="no" src ="http://www.indecon.com.br/Indicadores.aspx?Tipo=1" width=270 height=175></iframe> -->
+				<iframe name="InlineFrame1" id="InlineFrame1" style="width: 98%; margin: auto;" height="248" src="http://www.acervoleis.com.br/export/quadroIndFin.asp" frameborder="1"></iframe>
 			</div>
 		</aside>
 
@@ -235,7 +214,7 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 	</div>
 
 			<div ng-show="loadingFaqs" class="carregando_informacao texto_centralizado">
-				<img src="/img/carregando.gif" alt="">
+				<img src="/img/uncompressed/carregando.gif" alt="">
 			</div>
             
             <dl id="faq-accordion" class="accordion" data-accordion="myAccordionGroup">
@@ -1215,7 +1194,7 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 	</div>
 
 	<div ng-show="loadingCorretores" class="carregando_informacao texto_centralizado">
-		<img src="/img/carregando.gif" alt="">
+		<img src="/img/uncompressed/carregando.gif" alt="">
 	</div>
 
 	<div class="ng-cloak" pagination-id="colabor" dir-paginate="corretor in corretores | filter:q | itemsPerPage: pageSize: 'colabor'" current-page="currentPage">
@@ -1302,8 +1281,21 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 	</div>
 
 	<div ng-show="loadingFormularios" class="carregando_informacao texto_centralizado">
-		<img src="/img/carregando.gif" alt="">
+		<img src="/img/uncompressed/carregando.gif" alt="">
 	</div>
+
+	<div class="row">
+
+		<div class="large-3 small-12 columns">
+		  <label for="right-label" class="right inline"><strong>Procurar Formulário: </strong></label>
+		</div>
+
+		<div class="large-9 small-12 columns">
+		  <input ng-model="q" id="search" class="form-control expand" placeholder="Escreva o termo">
+		</div>
+
+	</div>
+
 	<div ng-hide="loadingFormularios">
 		<strong>
 			<ng-pluralize count="formularios.length"
@@ -1344,7 +1336,7 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 	<div class="tabs-content">
 	  <div class="content active" id="panel_paginas_notificacoes">
 	  	<div ng-show="loadingNotificacoes" class="carregando_informacao texto_centralizado">
-			<img src="/img/carregando.gif" alt="">
+			<img src="/img/uncompressed/carregando.gif" alt="">
 		</div>
 		<div ng-hide="loadingNotificacoes">
 			<strong>
@@ -1374,7 +1366,7 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 
 	  <div class="content" id="panel_arquivos_notificacoes">
 	  	<div ng-show="loadingNotificacoesArquivos" class="carregando_informacao texto_centralizado">
-			<img src="/img/carregando.gif" alt="">
+			<img src="/img/uncompressed/carregando.gif" alt="">
 		</div>
 		<div ng-hide="loadingNotificacoesArquivos">
 			<strong>
@@ -1416,7 +1408,7 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 	<div class="tabs-content">
 	  <div class="content active" id="panel_paginas_circulares">
 	  	<div ng-show="loadingCirculares" class="carregando_informacao texto_centralizado">
-			<img src="/img/carregando.gif" alt="">
+			<img src="/img/uncompressed/carregando.gif" alt="">
 		</div>
 		<div ng-hide="loadingCirculares">
 			<strong>
@@ -1445,7 +1437,7 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 
 	  <div class="content" id="panel_arquivos_circulares">
 	  	<div ng-show="loadingCircularesArquivos" class="carregando_informacao texto_centralizado">
-			<img src="/img/carregando.gif" alt="">
+			<img src="/img/uncompressed/carregando.gif" alt="">
 		</div>
 		<div ng-hide="loadingCircularesArquivos">
 			<strong>
@@ -1496,7 +1488,7 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
 	</div>
 
 	<div ng-show="loadinGlossario" class="carregando_informacao texto_centralizado">
-		<img src="/img/carregando.gif" alt="">
+		<img src="/img/uncompressed/carregando.gif" alt="">
 	</div>
 
 	<ul class="ng-cloak">

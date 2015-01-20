@@ -8,7 +8,11 @@
         <a href="<?php echo $this->url('cms-admin-content/default',array('controller'=>'links','action'=>'new')); ?>" target="_self">Novo Link</a>
     </p>
 
-
+    <form action="<?php echo $this->url('cms-admin-content/default',array('controller'=>'links','action'=>'index')); ?>" method="post">
+        <input type="text" name="descricao" id="descricao">
+        <input type="hidden" name="tabela" value="Link">
+        <button type="submit">Pesquisar</button>
+    </form>
 
     <table class="table">
         <tr>

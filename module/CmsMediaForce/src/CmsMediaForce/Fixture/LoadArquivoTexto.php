@@ -30,6 +30,7 @@ class LoadArquivoTexto extends AbstractFixture implements OrderedFixtureInterfac
         );
 
         foreach($scanDir as $file) {
+            $file = utf8_decode($file);
             if (!in_array($file, $notToRead)) {
                 $endereco = $endereco . $file;
 
@@ -44,7 +45,7 @@ class LoadArquivoTexto extends AbstractFixture implements OrderedFixtureInterfac
 
                 $formulario = $manager->getReference('CmsMediaForce\Entity\Categoria', 3);
 
-                $arthurAdmin = $manager->getReference('CmsMediaForce\Entity\User', 4);        
+                $arthurAdmin = $manager->getReference('CmsMediaForce\Entity\User', 1);        
 
                 $dadosCad = new DadosCadConteudo;
 

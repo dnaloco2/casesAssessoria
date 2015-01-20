@@ -1,4 +1,13 @@
 <?php
+
+// $file = "ação-íaaa.jpg";
+// echo utf8_decode($file);
+// die;
+// $file = iconv('UTF-8', 'ASCII//TRANSLIT', $file);
+// echo "{$file} <br>"; die;
+
+// $filename    = html_entity_decode( $file, ENT_QUOTES, 'utf-8' );
+
 /**
  * This makes our life easier when dealing with paths. Everything is relative
  * to the application root now.

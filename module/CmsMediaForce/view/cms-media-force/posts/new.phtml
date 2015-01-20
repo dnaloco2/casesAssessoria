@@ -1,75 +1,21 @@
-<div class="content-admin">
-	<h3>Nova Página</h3>
+<div class="content-admin" ng-controller="PostsCtrl">
+	<h3>Editar Página</h3>
 	<br />
-
-	<form name="postsConteudo" id="postsConteudo" novalidate>
-		<label for="inputTitulo">Título</label>
-
-		<div class="row">
-		    <div class="small-8 columns">
-		      <div class="row">
-		        <div class="small-3 columns">
-		          <label for="inputTitulo" class="right inline">Título</label>
-		        </div>
-		        <div class="small-9 columns">
-		          <input type="text" id="inputTitulo" ng-model="post.inputTitulo" placeholder="Escreva o título do post">
-		        </div>
-		      </div>
-		    </div>
-		</div>
-
-		<div class="row">
-		    <div class="small-8 columns">
-		      <div class="row">
-		        <div class="small-3 columns">
-		          <label for="inputTitulo" class="right inline">Título</label>
-		        </div>
-		        <div class="small-9 columns">
-		          <input type="text" id="inputTitulo" ng-model="post.inputTitulo" placeholder="Escreva o título do post">
-		        </div>
-		      </div>
-		    </div>
-		</div>
-
-		<div class="row">
-		    <div class="small-8 columns">
-		      <div class="row">
-		        <div class="small-3 columns">
-		          <label for="inputNExpirar" class="right inline">Não Expirar</label>
-		        </div>
-		        <div class="small-9 columns">
-		          
-		        </div>
-		      </div>
-		    </div>
-		</div>
-
-		<div class="row">
-		    <div class="small-8 columns">
-		      <div class="row">
-		        <div class="small-3 columns">
-		          <label for="inputDataExpiracao" class="right inline">Data da Expiração</label>
-		        </div>
-		        <div class="small-9 columns">
-
-		        </div>
-		      </div>
-		    </div>
-		</div>
-
-		<div class="row">
-		    <div class="small-8 columns">
-		      <div class="row">
-		        <div class="small-3 columns">
-		          <label for="inputCategoria" class="right inline">Categoria</label>
-		        </div>
-		        <div class="small-9 columns">
-
-		        </div>
-		      </div>
-		    </div>
-		</div>
-	</form>
+	<?php
+	
+	$form = $this->form;
+	$form->setAttribute('action', $this->url('cms-admin-content/default',array('controller'=>'posts','action'=>'new')));
+	$form->prepare();
+	
+	echo $this->form()->openTag($form);
+	echo $this->formCollection($form);
+	echo $this->form()->closeTag();
+	?>
+	
+	<?php echo $this->inlineScript()
+					->prependFile($this->basePath() . '/js/ckeditor.js')
+	
+	; ?>
 	
 	<script>
 		CKEDITOR.replace( 'textarea-content' )
@@ -78,5 +24,4 @@
 	<br>
 	<br>
 	<br>
-
 </div>

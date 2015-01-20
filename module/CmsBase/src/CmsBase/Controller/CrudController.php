@@ -21,6 +21,29 @@ abstract class CrudController extends AbstractActionController
     
     public function indexAction() {
 
+        $request = $this->getRequest();
+
+        if ($request->isPost()) {
+            $post = $request->getPost();
+            // var_dump($request->getPost()); die;
+
+
+            $query = $this->getEm()->createQuery(
+                'SELECT e, c FROM CmsMediaForce\\Entity\\' . $post['tabela'] . ' e JOIN e.categoria c ' . 
+                " WHERE c.nome = 'Glossário';"
+                );
+            $teste = $query->getResult();
+            var_dump($teste);
+            die;
+            $list = $this->getEm()
+                ->getRepository($this->entity)
+                ->findAll();
+        } else {
+            $list = $this->getEm()
+                ->getRepository($this->entity)
+                ->findAll();
+        }
+
         $list = $this->getEm()
                 ->getRepository($this->entity)
                 ->findAll();

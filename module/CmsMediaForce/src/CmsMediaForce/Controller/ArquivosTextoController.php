@@ -2,6 +2,9 @@
 
 namespace CmsMediaForce\Controller;
 
+
+ini_set('default_charset','UTF-8');
+
 use CmsBase\Controller\CrudController;
 
 use Zend\View\Model\ViewModel;
@@ -52,9 +55,12 @@ class ArquivosTextoController extends CrudController {
                     //A Imagem Não Foi Recebida Corretamente
                 }else{
 
+
                     $filename = $imageAdapter->getFileName('arquivo');
 
                     $form->setData($request->getPost());
+
+                    //var_dump($request->getPost()); die;
 
                     if($form->isValid())
                     {

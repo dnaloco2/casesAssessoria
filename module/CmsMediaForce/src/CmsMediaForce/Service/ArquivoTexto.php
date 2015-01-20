@@ -36,12 +36,12 @@ class ArquivoTexto extends AbstractService
             $categoria = $this->em->getReference('CmsMediaForce\Entity\Categoria', intval($data['categoria']));
             $usuario = $this->em->getReference('CmsMediaForce\Entity\User', intval($auth->getIdentity()->getId()));
 
-            $entity->setTitulo(ucwords($data['descricao']))
+            $entity->setTitulo(ucwords($data['titulo']))
                 ->setEndereco($data['filename']);
 
             $dadosCad = new DadosCadConteudo;
 
-            $dadosCad->setSlug(SlugHelper::slug($entity->getDescricao()))
+            $dadosCad->setSlug(SlugHelper::slug($entity->getTitulo()))
                 ->setCategoria($categoria)
                 ->setCriadoPor($usuario);
 
